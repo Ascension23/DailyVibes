@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Content Generator</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Header with logo to the left Get's hidden after user submits form: -->
+    <header class = "container" id = "mainHeader">
+        <div class="columns is-mobile">
+            <img class = "column is-one-quarter" id = "logo" src = "./Assets/pexels-beckett-5022312.jpg" 
+            alt = "Multicolored watercolor splash">
+            <h2 id = "logoText">Daily Vibes</h2>
+            <div class="column"><h1 id = "heading">Start your day off right!</h1></div>
+          </div>
+    </header>
+
+    <!-- Below is the form to handle the initial user set-up for the dashboard Gets hidden after submission: -->
+    <div class="field is-grouped is-grouped-centered" id = "inputForm">
+        <p class="field control">
+            <div class="control has-icons-left">
+              <input id = "inputName" class="input" type="text" placeholder="What's your name?">
+              <span class="icon is-left">
+                <i class="fas fa-user-astronaut"></i>
+              </span>
+            </div>
+        </p>
+
+        <p class="control has-icons-left">
+            <span class="select">
+              <select id = "vibeInput">
+                <option selected>Current Vibes</option>
+                <option>Irritated</option>
+                <option>Chill</option>
+                <option>Joyful</option>
+                <option>Downcast</option>
+              </select>
+            </span>
+            <span class="icon is-small is-left">
+                <i class="far fa-smile"></i>
+            </span>
+          </p>
+
+          <p class="control has-icons-left">
+            <span class="select">
+              <select id = "zodiacInput">
+                <option selected>Zodiac Sign</option>
+                <option>Aquarius *January 20 – February 18*</option>
+                <option>Pisces *February 19 – March 20*</option>
+                <option>Aries *March 21 – April 19*</option>
+                <option>Taurus *April 20 – May 20*</option>
+                <option>Gemini *May 21 – June 20*</option>
+                <option>Cancer *June 21 – July 22*</option>
+                <option>Leo July *23 – August 22*</option>
+                <option>Virgo *August 23 – September 22*</option>
+                <option>Libra *September 23 – October 22*</option>
+                <option>Scorpio *October 23 – November 22*</option>
+                <option>Sagittarius *November 23 – December 21*</option>
+                <option>Capricorn *December 22 – January 19*</option>
+              </select>
+            </span>
+            <span class="icon is-small is-left">
+                <i class="far fa-star"></i>
+            </span>
+          </p>
+          <p class="control">
+            <a class="button is-primary" id = "letsGo">
+              Let's Get Going!
+            </a>
+          </p>     
+        </div>
+
+    <!-- Below is the code for the user dashboard experience Will start out hidden and then show up once form is submitted: -->
+
+    <div id = "dashboard">
+        <!-- This is just to test the hide/show toggle is working for now: -->
+        <div class="columns is-mobile">
+            <img class = "column is-one-quarter" id = "dog" src = "./Assets/pexels-anna-shvets-4587959.jpg">
+            <img class = "column is-one-quarter" id = "cat" src = "./Assets/pexels-anna-shvets-4588052.jpg">
+            <div class="column"><h1 id = "heading">Welcome to your dashboard</h1></div>
+          </div>
+
+
+    </div>
+  
+    
+  
+    <script src = "./script.js"></script>
+</body>
+</html>
