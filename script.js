@@ -1,0 +1,115 @@
+var userName = document.getElementById("inputName");
+var userMood = document.getElementById("vibeInput");
+var userZodiac = document.getElementById("zodiacInput");
+var letsGoButton = document.getElementById("letsGo");
+var now = moment(); 
+// var personalMessageArray = [{},{},{},{}];
+
+//Add eventlistener for the click on the beginning page form submission:
+letsGoButton.addEventListener('click', function(e){
+    e.preventDefault();
+    var name = userName.value;
+    var mood = userMood.value;
+    var zodiac = userZodiac.value;
+    console.log(name);
+    console.log(mood);
+    console.log(zodiac);
+    //Hide main header and user input form on button click and display dashboard:
+    document.getElementById("inputForm").style.display = "none";
+    document.getElementById("mainHeader").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+
+    //Print the date to the page:
+    var currentDay = now.format("MMM DD, YYYY");
+    document.getElementById("currentDay").textContent = currentDay;
+
+    //Print personalized message to user based on mood:
+    if(mood == "Irritated"){
+        console.log("Don't be upset!")
+        document.getElementById("personalizedMessage").textContent = name + ", it's okay to take a step back!";
+    }
+    if(mood == "Chill"){
+        document.getElementById("personalizedMessage").textContent = name + ", keep on vibing!";
+    }
+    if(mood == "Joyful"){
+        document.getElementById("personalizedMessage").textContent = name + ", your happiness is contagious!";
+    }
+    if(mood == "Downcast"){
+        document.getElementById("personalizedMessage").textContent = name + ", don't give up! Each day is a new beginning.";
+    }
+
+
+        //Make sure this is the right spot to call all these functions. 
+    //zodiacFunction(zodiac) -- pass in the input from the user selection somehow
+    //musicFunction
+    //quoteFunction
+    
+
+    //Set search bar back to default:
+    document.querySelector('#inputName').value = '';
+});
+
+document.getElementById("dashboard").style.display = "none";
+
+
+
+
+//Pseudo Code:
+//1. Write the funtion for the API call to match the input for the chosen zodiac sign. Example:
+//funtion zodiacFunction(zodiac){
+
+    //API call here -- will need if statements within the API call to match the selected zodiac to the correct zodiac API. 
+    //Is there a general API call to get all 12 zodiacs, then pull the selected choice from that array instead of having 12
+    //API calls???
+
+//};
+
+
+//2. Write the function for the music call here: 
+//Playlist will be determined by the user mood choice
+
+//3. Function for the quote of the day
+
+
+//API calls for Cat and Dog Pictures:
+var dogImage = document.getElementById("dogImg");
+var catImage = document.getElementById("catImg");
+
+//Create the function that will run on dog image click:
+function randomDog(event) {
+    event.preventDefault();
+  
+    //Use geocoding API to convert city name into coordinates:
+    var dogapiURL = "https://dog.ceo/api/breeds/image/random";
+  
+    fetch(dogapiURL).then(function(response){
+        if(response.ok){
+            response.json().then(function(dog){
+                //change the src of the HTML image with the content from the API object:
+                dogImage.src = dog.message;  
+            });
+        }
+    });
+};
+
+//Create the function that will run on cat image click:
+function randomCat(event) {
+    event.preventDefault();
+  
+    //Use geocoding API to convert city name into coordinates:
+    var catapiURL = "https://api.thecatapi.com/v1/images/search/";
+  
+    fetch(catapiURL).then(function(response){
+        if(response.ok){
+            response.json().then(function(cat){
+                console.log(cat);
+                //change the src of the HTML image with the content from the API object:
+                catImage.src = cat[0].url;                 
+            });
+        }
+    });
+};
+
+dogImage.addEventListener("click", randomDog);
+catImage.addEventListener("click", randomCat);
+
