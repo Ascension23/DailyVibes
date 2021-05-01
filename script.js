@@ -159,7 +159,7 @@ var getZodiac = function (sign) {
 };
 
 getZodiac(Scorpio);
-
+//TEST
 
 
 //Weather API:
