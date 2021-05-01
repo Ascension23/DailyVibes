@@ -3,6 +3,10 @@ var userMood = document.getElementById("vibeInput");
 var userZodiac = document.getElementById("zodiacInput");
 var letsGoButton = document.getElementById("letsGo");
 var now = moment();
+var chillPlaylist = document.getElementById('chill')
+var irritatedPlaylist = document.getElementById('irritated')
+var energeticPlaylist = document.getElementById('energetic')
+var downcastPlaylist = document.getElementById('downcast')
 // var personalMessageArray = [{},{},{},{}];
 
 //Create the zodiac variables:
