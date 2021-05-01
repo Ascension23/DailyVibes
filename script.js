@@ -2,7 +2,7 @@ var userName = document.getElementById("inputName");
 var userMood = document.getElementById("vibeInput");
 var userZodiac = document.getElementById("zodiacInput");
 var letsGoButton = document.getElementById("letsGo");
-var now = moment(); 
+var now = moment();
 // var personalMessageArray = [{},{},{},{}];
 
 //Create the zodiac variables:
@@ -68,76 +68,94 @@ letsGoButton.addEventListener('click', function(e){
 
 document.getElementById("dashboard").style.display = "none";
 
-
-
-
 //Pseudo Code:
 //1. Write the funtion for the API call to match the input for the chosen zodiac sign. Example:
 //funtion zodiacFunction(zodiac){
 
-    //API call here -- will need if statements within the API call to match the selected zodiac to the correct zodiac API. 
-    //Is there a general API call to get all 12 zodiacs, then pull the selected choice from that array instead of having 12
-    //API calls???
+//API call here -- will need if statements within the API call to match the selected zodiac to the correct zodiac API.
+//Is there a general API call to get all 12 zodiacs, then pull the selected choice from that array instead of having 12
+//API calls???
 
 //};
 
-
-//2. Write the function for the music call here: 
+//2. Write the function for the music call here:
 //Playlist will be determined by the user mood choice
 
 //3. Function for the quote of the day
+function getQuoteApi() {
+  fetch("https://quotes15.p.rapidapi.com/quotes/random/", {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "0665350332msh1985abd708cb901p1e779fjsn146d8777e84f",
+      "x-rapidapi-host": "quotes15.p.rapidapi.com",
+    },
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response);
 
-
-
-var getAries = function (){
-    fetch("https://devbrewer-horoscope.p.rapidapi.com/today/short/Aries", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "9c3068ce65msha6850c71271b7fcp1522ebjsn97a0e9da5d54",
-            "x-rapidapi-host": "devbrewer-horoscope.p.rapidapi.com"
-        }
+      document.getElementById("quote").innerHTML = "'" + response.content + "'";
+      console.log(quote);
+      document.getElementById("quoteAuthor").innerHTML =
+        "author: " + response.originator.name;
     })
-    .then(response => response.json())
-    // console.log(response)
-    .then(data => { 
-        console.log(data);
-        var signHoroscope = data.Aries.Today;
-        console.log(signHoroscope);
-        document.getElementById('horoscopeText').textContent = signHoroscope;
-    })    
-    .catch(err => {
-        console.error(err);
+    .catch((err) => {
+      console.log(err);
     });
- // "https://devbrewer-horoscope.p.rapidapi.com/today/short/" + zodiac;
- //https://devbrewer-horoscope.p.rapidapi.com/today/short/Cancer"
+}
+
+var fetchButton = document.getElementById("quoteBtn");
+
+fetchButton.addEventListener("click", getQuoteApi);
+
+var getAries = function () {
+  fetch("https://devbrewer-horoscope.p.rapidapi.com/today/short/Aries", {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "9c3068ce65msha6850c71271b7fcp1522ebjsn97a0e9da5d54",
+      "x-rapidapi-host": "devbrewer-horoscope.p.rapidapi.com",
+    },
+  })
+    .then((response) => response.json())
+    // console.log(response)
+    .then((data) => {
+      console.log(data);
+      var signHoroscope = data.Aries.Today;
+      console.log(signHoroscope);
+      document.getElementById("horoscopeText").textContent = signHoroscope;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  // "https://devbrewer-horoscope.p.rapidapi.com/today/short/" + zodiac;
+  //https://devbrewer-horoscope.p.rapidapi.com/today/short/Cancer"
 };
 
-
-var getZodiac = function (sign){
-    fetch("https://devbrewer-horoscope.p.rapidapi.com/today/short/" + sign, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "9c3068ce65msha6850c71271b7fcp1522ebjsn97a0e9da5d54",
-            "x-rapidapi-host": "devbrewer-horoscope.p.rapidapi.com"
-        }
-    })
-    .then(response => response.json())
+var getZodiac = function (sign) {
+  fetch("https://devbrewer-horoscope.p.rapidapi.com/today/short/" + sign, {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "9c3068ce65msha6850c71271b7fcp1522ebjsn97a0e9da5d54",
+      "x-rapidapi-host": "devbrewer-horoscope.p.rapidapi.com",
+    },
+  })
+    .then((response) => response.json())
     // console.log(response)
-    .then(data => { 
-        console.log(sign);
-        console.log(data);
-        //When you assign a part of an onject a variable, need to use bracket notation instead of dot notation.
-        console.log(data[sign]);
+    .then((data) => {
+      console.log(sign);
+      console.log(data);
+      //When you assign a part of an onject a variable, need to use bracket notation instead of dot notation.
+      console.log(data[sign]);
 
-        var signHoroscope = data[sign].Today;
-        console.log(signHoroscope);
-        document.getElementById('horoscopeText').textContent = signHoroscope;
-    })    
-    .catch(err => {
-        console.error(err);
+      var signHoroscope = data[sign].Today;
+      console.log(signHoroscope);
+      document.getElementById("horoscopeText").textContent = signHoroscope;
+    })
+    .catch((err) => {
+      console.error(err);
     });
- // "https://devbrewer-horoscope.p.rapidapi.com/today/short/" + zodiac;
- //https://devbrewer-horoscope.p.rapidapi.com/today/short/Cancer"
+  // "https://devbrewer-horoscope.p.rapidapi.com/today/short/" + zodiac;
+  //https://devbrewer-horoscope.p.rapidapi.com/today/short/Cancer"
 };
 
 getZodiac(Scorpio);
@@ -169,40 +187,38 @@ var catImage = document.getElementById("catImg");
 
 //Create the function that will run on dog image click:
 function randomDog(event) {
-    event.preventDefault();
-  
-    //Use geocoding API to convert city name into coordinates:
-    var dogapiURL = "https://dog.ceo/api/breeds/image/random";
-  
-    fetch(dogapiURL).then(function(response){
-        if(response.ok){
-            response.json().then(function(dog){
-                //change the src of the HTML image with the content from the API object:
-                dogImage.src = dog.message;  
-            });
-        }
-    });
-};
+  event.preventDefault();
+
+  //Use geocoding API to convert city name into coordinates:
+  var dogapiURL = "https://dog.ceo/api/breeds/image/random";
+
+  fetch(dogapiURL).then(function (response) {
+    if (response.ok) {
+      response.json().then(function (dog) {
+        //change the src of the HTML image with the content from the API object:
+        dogImage.src = dog.message;
+      });
+    }
+  });
+}
 
 //Create the function that will run on cat image click:
 function randomCat(event) {
-    event.preventDefault();
-  
-    //Use geocoding API to convert city name into coordinates:
-    var catapiURL = "https://api.thecatapi.com/v1/images/search/";
-  
-    fetch(catapiURL).then(function(response){
-        if(response.ok){
-            response.json().then(function(cat){
-                console.log(cat);
-                //change the src of the HTML image with the content from the API object:
-                catImage.src = cat[0].url;                 
-            });
-        }
-    });
-};
+  event.preventDefault();
+
+  //Use geocoding API to convert city name into coordinates:
+  var catapiURL = "https://api.thecatapi.com/v1/images/search/";
+
+  fetch(catapiURL).then(function (response) {
+    if (response.ok) {
+      response.json().then(function (cat) {
+        console.log(cat);
+        //change the src of the HTML image with the content from the API object:
+        catImage.src = cat[0].url;
+      });
+    }
+  });
+}
 
 dogImage.addEventListener("click", randomDog);
 catImage.addEventListener("click", randomCat);
-
-//API Calls for weather ICON and Temperature:
