@@ -158,26 +158,6 @@ getZodiac(Scorpio);
 
 //Weather API:
 //Create the current weather funtion for the API call:
-var getCurrentWeather = function (searchInput, lat, long) {
-  //passing in city, which will be the user input when this function is called in the search submit function.
-  //Parameters are the long and lat from geocode API, excluded data, units = imperial, and the individual API key code.
-  var apiURL =
-    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-    lat +
-    "&lon=" +
-    long +
-    "&exclude=minutely,hourly,alerts&units=imperial&appid=4e9dab74dadddaa9b893280c60fbd5eb";
-
-  fetch(apiURL).then(function (response) {
-    //fetching the API with a promise.
-    if (response.ok) {
-      response.json().then(function (data) {});
-    }
-  });
-};
-
-//Weather API:
-//Create the current weather funtion for the API call:
 var getCurrentWeather = function (cityInput, lat, long) {
   //Parameters are the long and lat from geocode API, excluded data, units = imperial, and the individual API key code.
   var apiURL =
@@ -256,4 +236,3 @@ function randomCat(event) {
 dogImage.addEventListener("click", randomDog);
 catImage.addEventListener("click", randomCat);
 
-//some random text
