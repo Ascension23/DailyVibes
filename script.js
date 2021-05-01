@@ -5,12 +5,20 @@ var letsGoButton = document.getElementById("letsGo");
 var now = moment();
 // var personalMessageArray = [{},{},{},{}];
 
+//Create the zodiac variables:
+var Scorpio = "Scorpio";
+
 //Add eventlistener for the click on the beginning page form submission:
 letsGoButton.addEventListener("click", function (e) {
   e.preventDefault();
   var name = userName.value;
   var mood = userMood.value;
   var zodiac = userZodiac.value;
+
+  //Comment - var sign is going to equal the userZodiac.value split at just the zodiac name, which is the first word.
+  //Try parse, or google how to split out first word. Week 6 activity 8 and 10.
+  getZodiac(sign);
+
   console.log(name);
   console.log(mood);
   console.log(zodiac);
@@ -92,6 +100,58 @@ function getQuoteApi() {
 var fetchButton = document.getElementById("quoteBtn");
 
 fetchButton.addEventListener("click", getQuoteApi);
+
+var getAries = function () {
+  fetch("https://devbrewer-horoscope.p.rapidapi.com/today/short/Aries", {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "9c3068ce65msha6850c71271b7fcp1522ebjsn97a0e9da5d54",
+      "x-rapidapi-host": "devbrewer-horoscope.p.rapidapi.com",
+    },
+  })
+    .then((response) => response.json())
+    // console.log(response)
+    .then((data) => {
+      console.log(data);
+      var signHoroscope = data.Aries.Today;
+      console.log(signHoroscope);
+      document.getElementById("horoscopeText").textContent = signHoroscope;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  // "https://devbrewer-horoscope.p.rapidapi.com/today/short/" + zodiac;
+  //https://devbrewer-horoscope.p.rapidapi.com/today/short/Cancer"
+};
+
+var getZodiac = function (sign) {
+  fetch("https://devbrewer-horoscope.p.rapidapi.com/today/short/" + sign, {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "9c3068ce65msha6850c71271b7fcp1522ebjsn97a0e9da5d54",
+      "x-rapidapi-host": "devbrewer-horoscope.p.rapidapi.com",
+    },
+  })
+    .then((response) => response.json())
+    // console.log(response)
+    .then((data) => {
+      console.log(sign);
+      console.log(data);
+      //When you assign a part of an onject a variable, need to use bracket notation instead of dot notation.
+      console.log(data[sign]);
+
+      var signHoroscope = data[sign].Today;
+      console.log(signHoroscope);
+      document.getElementById("horoscopeText").textContent = signHoroscope;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  // "https://devbrewer-horoscope.p.rapidapi.com/today/short/" + zodiac;
+  //https://devbrewer-horoscope.p.rapidapi.com/today/short/Cancer"
+};
+
+getZodiac(Scorpio);
 
 //API calls for Cat and Dog Pictures:
 var dogImage = document.getElementById("dogImg");
