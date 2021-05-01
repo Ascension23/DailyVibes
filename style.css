@@ -87,6 +87,17 @@
   margin-top: 1%;
 }
 
+#weather {
+  display: flex;
+  text-align: center;
+}
+#city {
+  font-size: 1.5vw;
+}
+#temp {
+  font-size: 1vw;
+}
+
 #quoteSection {
   background-color: yellow;
   padding: 3%;

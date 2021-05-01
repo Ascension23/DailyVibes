@@ -2,6 +2,7 @@ var userName = document.getElementById("inputName");
 var userMood = document.getElementById("vibeInput");
 var userZodiac = document.getElementById("zodiacInput");
 var letsGoButton = document.getElementById("letsGo");
+var cityName = document.querySelector("#cityName");
 var now = moment();
 // var personalMessageArray = [{},{},{},{}];
 
@@ -14,6 +15,7 @@ letsGoButton.addEventListener("click", function (e) {
   var name = userName.value;
   var mood = userMood.value;
   var zodiac = userZodiac.value;
+  var cityInput = cityName.value;
 
   //Comment - var sign is going to equal the userZodiac.value split at just the zodiac name, which is the first word.
   //Try parse, or google how to split out first word. Week 6 activity 8 and 10.
@@ -48,46 +50,34 @@ letsGoButton.addEventListener("click", function (e) {
     document.getElementById("personalizedMessage").textContent =
       name + ", don't give up! Each day is a new beginning.";
   }
+  //Quote Call
+  getQuoteApi();
 
-  // //Weather API Call:
-  // var searchInput = document.querySelector('#searchBar').value;
-  // //Use geocoding API to convert city name into coordinates:
-  // var geocodeapiURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + searchInput + '&appid=4e9dab74dadddaa9b893280c60fbd5eb';
+  //Weather API Call:
+  //Use geocoding API to convert city name into coordinates:
+  var geocodeapiURL =
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
+    cityInput +
+    "&appid=4e9dab74dadddaa9b893280c60fbd5eb";
 
-  // fetch(geocodeapiURL).then(function(response){
-  //     if(response.ok){
-  //         response.json().then(function(geocode){
-  //             //Set the longitude and latitude variables and then call the weather function:
-  //             var lat = geocode[0].lat;
-  //             var long = geocode[0].lon;
-  //             getCurrentWeather(searchInput, lat, long);
-  //         });
-  //     }
-  // });
+  fetch(geocodeapiURL).then(function (response) {
+    if (response.ok) {
+      response.json().then(function (geocode) {
+        //Set the longitude and latitude variables and then call the weather function:
+        var lat = geocode[0].lat;
+        var long = geocode[0].lon;
+        getCurrentWeather(cityInput, lat, long);
+      });
+    }
+  });
 
   //Set search bar back to default:
   document.querySelector("#inputName").value = "";
-
-  //run quote
-  getQuoteApi();
 });
 
 document.getElementById("dashboard").style.display = "none";
 
-//Pseudo Code:
-//1. Write the funtion for the API call to match the input for the chosen zodiac sign. Example:
-//funtion zodiacFunction(zodiac){
-
-//API call here -- will need if statements within the API call to match the selected zodiac to the correct zodiac API.
-//Is there a general API call to get all 12 zodiacs, then pull the selected choice from that array instead of having 12
-//API calls???
-
-//};
-
-//2. Write the function for the music call here:
-//Playlist will be determined by the user mood choice
-
-//3. Function for the quote of the day
+//Function for the quote of the day
 function getQuoteApi() {
   fetch("https://quotes15.p.rapidapi.com/quotes/random/", {
     method: "GET",
@@ -185,6 +175,44 @@ var getCurrentWeather = function (searchInput, lat, long) {
     }
   });
 };
+
+//Weather API:
+//Create the current weather funtion for the API call:
+var getCurrentWeather = function (cityInput, lat, long) {
+  //Parameters are the long and lat from geocode API, excluded data, units = imperial, and the individual API key code.
+  var apiURL =
+    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+    lat +
+    "&lon=" +
+    long +
+    "&exclude=minutely,hourly,alerts&units=imperial&appid=4e9dab74dadddaa9b893280c60fbd5eb";
+
+  fetch(apiURL).then(function (response) {
+    //fetching the API with a promise.
+    if (response.ok) {
+      response.json().then(function (data) {
+        displayCurrentWeather(cityInput, data);
+      });
+    }
+  });
+};
+
+function displayCurrentWeather(cityInput, array) {
+  //Create the City Name heading:
+  var cityName = cityInput + " ";
+  var curEmoji = array.current.weather[0].icon;
+  document.querySelector("#city").textContent = cityName;
+  document
+    .querySelector("#weatherIcon")
+    .setAttribute(
+      "src",
+      "https://openweathermap.org/img/wn/" + curEmoji + "@2x.png"
+    );
+
+  //Create the temp variable and dynamically add it to the page:
+  var temp = array.current.temp + " °F";
+  document.getElementById("temp").textContent = temp;
+}
 
 //API calls for Cat and Dog Pictures:
 var dogImage = document.getElementById("dogImg");
