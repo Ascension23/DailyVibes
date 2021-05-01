@@ -17,7 +17,6 @@ letsGoButton.addEventListener("click", function (e) {
 
   //Comment - var sign is going to equal the userZodiac.value split at just the zodiac name, which is the first word.
   //Try parse, or google how to split out first word. Week 6 activity 8 and 10.
-  getZodiac(sign);
 
   console.log(name);
   console.log(mood);
@@ -50,13 +49,27 @@ letsGoButton.addEventListener("click", function (e) {
       name + ", don't give up! Each day is a new beginning.";
   }
 
-  //Make sure this is the right spot to call all these functions.
-  //zodiacFunction(zodiac) -- pass in the input from the user selection somehow
-  //musicFunction
-  //quoteFunction
+  // //Weather API Call:
+  // var searchInput = document.querySelector('#searchBar').value;
+  // //Use geocoding API to convert city name into coordinates:
+  // var geocodeapiURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + searchInput + '&appid=4e9dab74dadddaa9b893280c60fbd5eb';
+
+  // fetch(geocodeapiURL).then(function(response){
+  //     if(response.ok){
+  //         response.json().then(function(geocode){
+  //             //Set the longitude and latitude variables and then call the weather function:
+  //             var lat = geocode[0].lat;
+  //             var long = geocode[0].lon;
+  //             getCurrentWeather(searchInput, lat, long);
+  //         });
+  //     }
+  // });
 
   //Set search bar back to default:
   document.querySelector("#inputName").value = "";
+
+  //run quote
+  getQuoteApi();
 });
 
 document.getElementById("dashboard").style.display = "none";
@@ -90,7 +103,7 @@ function getQuoteApi() {
       document.getElementById("quote").innerHTML = "'" + response.content + "'";
       console.log(quote);
       document.getElementById("quoteAuthor").innerHTML =
-        "author: " + response.originator.name;
+        "- " + response.originator.name;
     })
     .catch((err) => {
       console.log(err);
@@ -98,7 +111,6 @@ function getQuoteApi() {
 }
 
 var fetchButton = document.getElementById("quoteBtn");
-
 fetchButton.addEventListener("click", getQuoteApi);
 
 var getAries = function () {
@@ -152,6 +164,27 @@ var getZodiac = function (sign) {
 };
 
 getZodiac(Scorpio);
+//TEST
+
+//Weather API:
+//Create the current weather funtion for the API call:
+var getCurrentWeather = function (searchInput, lat, long) {
+  //passing in city, which will be the user input when this function is called in the search submit function.
+  //Parameters are the long and lat from geocode API, excluded data, units = imperial, and the individual API key code.
+  var apiURL =
+    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+    lat +
+    "&lon=" +
+    long +
+    "&exclude=minutely,hourly,alerts&units=imperial&appid=4e9dab74dadddaa9b893280c60fbd5eb";
+
+  fetch(apiURL).then(function (response) {
+    //fetching the API with a promise.
+    if (response.ok) {
+      response.json().then(function (data) {});
+    }
+  });
+};
 
 //API calls for Cat and Dog Pictures:
 var dogImage = document.getElementById("dogImg");
