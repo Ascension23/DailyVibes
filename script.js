@@ -4,6 +4,10 @@ var userZodiac = document.getElementById("zodiacInput");
 var letsGoButton = document.getElementById("letsGo");
 var cityName = document.querySelector("#cityName");
 var now = moment();
+var chillPlaylist = document.getElementById('chill')
+var irritatedPlaylist = document.getElementById('irritated')
+var energeticPlaylist = document.getElementById('energetic')
+var downcastPlaylist = document.getElementById('downcast')
 // var personalMessageArray = [{},{},{},{}];
 
 //Create the zodiac variables:
@@ -37,18 +41,26 @@ letsGoButton.addEventListener("click", function (e) {
     console.log("Don't be upset!");
     document.getElementById("personalizedMessage").textContent =
       name + ", it's okay to take a step back!";
+      irritatedPlaylist.style.display = 'block';
+    document.getElementById('userVibe').textContent = "Here's some rock music to fit your irritated vibe";
   }
   if (mood == "Chill") {
     document.getElementById("personalizedMessage").textContent =
       name + ", keep on vibing!";
+      chillPlaylist.style.display = 'block';
+    document.getElementById('userVibe').textContent = "Here's some lofi for your chill vibe";
   }
-  if (mood == "Joyful") {
+  if (mood == "Energetic") {
     document.getElementById("personalizedMessage").textContent =
       name + ", your happiness is contagious!";
+      energeticPlaylist.style.display = 'block';
+    document.getElementById('userVibe').textContent = "Here's a little EDM to fit your energetic vibe";
   }
   if (mood == "Downcast") {
     document.getElementById("personalizedMessage").textContent =
       name + ", don't give up! Each day is a new beginning.";
+      downcastPlaylist.style.display = 'block';
+    document.getElementById('userVibe').textContent = "Here's a little emo music to fit your downcast vibe";
   }
   //Quote Call
   getQuoteApi();
