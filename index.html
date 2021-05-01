@@ -35,6 +35,15 @@
             </div>
         </p>
 
+        <p class="field control">
+          <div class="control has-icons-left">
+            <input id = "cityName" class="input" type="text" placeholder="Nearest city?">
+            <span class="icon is-left">
+              <i class="fas fa-user-astronaut"></i>
+            </span>
+          </div>
+      </p>
+
         <p class="control has-icons-left">
             <span class="select">
               <select id = "vibeInput">
@@ -111,7 +120,8 @@
 
             <!--Last line - corner content-->
             <div class="column is-one-quarter" id = "weather">
-              <p id = "weatherIcon"></p>
+              <p id = "city"></p>
+              <img id = "weatherIcon">
               <p id = "temp"></p>              
             </div>
             <div class="column is-half" id = "quoteSection">
@@ -130,7 +140,7 @@
 
 
     </div>
-  
+   
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
