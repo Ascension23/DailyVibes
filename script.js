@@ -5,12 +5,17 @@ var letsGoButton = document.getElementById("letsGo");
 var now = moment(); 
 // var personalMessageArray = [{},{},{},{}];
 
+//Create the zodiac variables:
+var Scorpio = "Scorpio";
+
 //Add eventlistener for the click on the beginning page form submission:
 letsGoButton.addEventListener('click', function(e){
     e.preventDefault();
     var name = userName.value;
     var mood = userMood.value;
     var zodiac = userZodiac.value;
+
+    //Comment - var sign is going to equal the userZodiac.value split at just the zodiac name, which is the first word. 
     console.log(name);
     console.log(mood);
     console.log(zodiac);
@@ -37,6 +42,10 @@ letsGoButton.addEventListener('click', function(e){
     if(mood == "Downcast"){
         document.getElementById("personalizedMessage").textContent = name + ", don't give up! Each day is a new beginning.";
     }
+
+    // if(zodiac == "Aries *March 21 – April 19*"){
+    //     getAries();
+    // }
 
 
         //Make sure this is the right spot to call all these functions. 
@@ -69,6 +78,65 @@ document.getElementById("dashboard").style.display = "none";
 //Playlist will be determined by the user mood choice
 
 //3. Function for the quote of the day
+
+
+
+var getAries = function (){
+    fetch("https://devbrewer-horoscope.p.rapidapi.com/today/short/Aries", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "9c3068ce65msha6850c71271b7fcp1522ebjsn97a0e9da5d54",
+            "x-rapidapi-host": "devbrewer-horoscope.p.rapidapi.com"
+        }
+    })
+    .then(response => response.json())
+    // console.log(response)
+    .then(data => { 
+        console.log(data);
+        var signHoroscope = data.Aries.Today;
+        console.log(signHoroscope);
+        document.getElementById('horoscopeText').textContent = signHoroscope;
+    })    
+    .catch(err => {
+        console.error(err);
+    });
+ // "https://devbrewer-horoscope.p.rapidapi.com/today/short/" + zodiac;
+ //https://devbrewer-horoscope.p.rapidapi.com/today/short/Cancer"
+};
+
+
+var getZodiac = function (sign){
+    fetch("https://devbrewer-horoscope.p.rapidapi.com/today/short/" + sign, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "9c3068ce65msha6850c71271b7fcp1522ebjsn97a0e9da5d54",
+            "x-rapidapi-host": "devbrewer-horoscope.p.rapidapi.com"
+        }
+    })
+    .then(response => response.json())
+    // console.log(response)
+    .then(data => { 
+        var sign2 = sign;
+        console.log(sign);
+        console.log(data);
+        console.log(data.sign2);
+
+        var signHoroscope = data.sign.Today;
+        console.log(signHoroscope);
+        document.getElementById('horoscopeText').textContent = signHoroscope;
+    })    
+    .catch(err => {
+        console.error(err);
+    });
+ // "https://devbrewer-horoscope.p.rapidapi.com/today/short/" + zodiac;
+ //https://devbrewer-horoscope.p.rapidapi.com/today/short/Cancer"
+};
+
+getZodiac(Scorpio);
+
+
+
+
 
 
 //API calls for Cat and Dog Pictures:
