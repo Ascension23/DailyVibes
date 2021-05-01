@@ -45,21 +45,21 @@ letsGoButton.addEventListener('click', function(e){
         document.getElementById("personalizedMessage").textContent = name + ", don't give up! Each day is a new beginning.";
     }
 
-    //Weather API Call:
-    var searchInput = document.querySelector('#searchBar').value;
-    //Use geocoding API to convert city name into coordinates:
-    var geocodeapiURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + searchInput + '&appid=4e9dab74dadddaa9b893280c60fbd5eb';
+    // //Weather API Call:
+    // var searchInput = document.querySelector('#searchBar').value;
+    // //Use geocoding API to convert city name into coordinates:
+    // var geocodeapiURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + searchInput + '&appid=4e9dab74dadddaa9b893280c60fbd5eb';
 
-    fetch(geocodeapiURL).then(function(response){
-        if(response.ok){
-            response.json().then(function(geocode){
-                //Set the longitude and latitude variables and then call the weather function:
-                var lat = geocode[0].lat;
-                var long = geocode[0].lon;
-                getCurrentWeather(searchInput, lat, long);
-            });
-        }
-    });
+    // fetch(geocodeapiURL).then(function(response){
+    //     if(response.ok){
+    //         response.json().then(function(geocode){
+    //             //Set the longitude and latitude variables and then call the weather function:
+    //             var lat = geocode[0].lat;
+    //             var long = geocode[0].lon;
+    //             getCurrentWeather(searchInput, lat, long);
+    //         });
+    //     }
+    // });
     
 
     //Set search bar back to default:
