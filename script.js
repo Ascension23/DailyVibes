@@ -15,7 +15,10 @@ letsGoButton.addEventListener('click', function(e){
     var mood = userMood.value;
     var zodiac = userZodiac.value;
 
-    //Comment - var sign is going to equal the userZodiac.value split at just the zodiac name, which is the first word. 
+    //Comment - var sign is going to equal the userZodiac.value split at just the zodiac name, which is the first word.
+    //Try parse, or google how to split out first word. Week 6 activity 8 and 10.
+    getZodiac(sign);
+
     console.log(name);
     console.log(mood);
     console.log(zodiac);
@@ -43,10 +46,7 @@ letsGoButton.addEventListener('click', function(e){
         document.getElementById("personalizedMessage").textContent = name + ", don't give up! Each day is a new beginning.";
     }
 
-    // if(zodiac == "Aries *March 21 – April 19*"){
-    //     getAries();
-    // }
-
+    
 
         //Make sure this is the right spot to call all these functions. 
     //zodiacFunction(zodiac) -- pass in the input from the user selection somehow
@@ -116,12 +116,12 @@ var getZodiac = function (sign){
     .then(response => response.json())
     // console.log(response)
     .then(data => { 
-        var sign2 = sign;
         console.log(sign);
         console.log(data);
-        console.log(data.sign2);
+        //When you assign a part of an onject a variable, need to use bracket notation instead of dot notation.
+        console.log(data[sign]);
 
-        var signHoroscope = data.sign.Today;
+        var signHoroscope = data[sign].Today;
         console.log(signHoroscope);
         document.getElementById('horoscopeText').textContent = signHoroscope;
     })    
