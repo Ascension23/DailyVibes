@@ -194,3 +194,5 @@ function randomCat(event) {
 
 dogImage.addEventListener("click", randomDog);
 catImage.addEventListener("click", randomCat);
+
+//some random text
