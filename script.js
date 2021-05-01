@@ -2,7 +2,7 @@ var userName = document.getElementById("inputName");
 var userMood = document.getElementById("vibeInput");
 var userZodiac = document.getElementById("zodiacInput");
 var letsGoButton = document.getElementById("letsGo");
-var cityName = document.querySelector('#cityName');
+var cityName = document.querySelector("#cityName");
 var now = moment();
 // var personalMessageArray = [{},{},{},{}];
 
@@ -10,65 +10,72 @@ var now = moment();
 var Scorpio = "Scorpio";
 
 //Add eventlistener for the click on the beginning page form submission:
-letsGoButton.addEventListener('click', function(e){
-    e.preventDefault();
-    var name = userName.value;
-    var mood = userMood.value;
-    var zodiac = userZodiac.value;
-    var cityInput = cityName.value;
+letsGoButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  var name = userName.value;
+  var mood = userMood.value;
+  var zodiac = userZodiac.value;
+  var cityInput = cityName.value;
 
-    //Comment - var sign is going to equal the userZodiac.value split at just the zodiac name, which is the first word.
-    //Try parse, or google how to split out first word. Week 6 activity 8 and 10.
+  //Comment - var sign is going to equal the userZodiac.value split at just the zodiac name, which is the first word.
+  //Try parse, or google how to split out first word. Week 6 activity 8 and 10.
 
-    console.log(name);
-    console.log(mood);
-    console.log(zodiac);
-    //Hide main header and user input form on button click and display dashboard:
-    document.getElementById("inputForm").style.display = "none";
-    document.getElementById("mainHeader").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
+  console.log(name);
+  console.log(mood);
+  console.log(zodiac);
+  //Hide main header and user input form on button click and display dashboard:
+  document.getElementById("inputForm").style.display = "none";
+  document.getElementById("mainHeader").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
 
-    //Print the date to the page:
-    var currentDay = now.format("MMM DD, YYYY");
-    document.getElementById("currentDay").textContent = currentDay;
+  //Print the date to the page:
+  var currentDay = now.format("MMM DD, YYYY");
+  document.getElementById("currentDay").textContent = currentDay;
 
-    //Print personalized message to user based on mood:
-    if(mood == "Irritated"){
-        console.log("Don't be upset!")
-        document.getElementById("personalizedMessage").textContent = name + ", it's okay to take a step back!";
+  //Print personalized message to user based on mood:
+  if (mood == "Irritated") {
+    console.log("Don't be upset!");
+    document.getElementById("personalizedMessage").textContent =
+      name + ", it's okay to take a step back!";
+  }
+  if (mood == "Chill") {
+    document.getElementById("personalizedMessage").textContent =
+      name + ", keep on vibing!";
+  }
+  if (mood == "Joyful") {
+    document.getElementById("personalizedMessage").textContent =
+      name + ", your happiness is contagious!";
+  }
+  if (mood == "Downcast") {
+    document.getElementById("personalizedMessage").textContent =
+      name + ", don't give up! Each day is a new beginning.";
+  }
+  //Quote Call
+  getQuoteApi();
+
+  //Weather API Call:
+  //Use geocoding API to convert city name into coordinates:
+  var geocodeapiURL =
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
+    cityInput +
+    "&appid=4e9dab74dadddaa9b893280c60fbd5eb";
+
+  fetch(geocodeapiURL).then(function (response) {
+    if (response.ok) {
+      response.json().then(function (geocode) {
+        //Set the longitude and latitude variables and then call the weather function:
+        var lat = geocode[0].lat;
+        var long = geocode[0].lon;
+        getCurrentWeather(cityInput, lat, long);
+      });
     }
-    if(mood == "Chill"){
-        document.getElementById("personalizedMessage").textContent = name + ", keep on vibing!";
-    }
-    if(mood == "Joyful"){
-        document.getElementById("personalizedMessage").textContent = name + ", your happiness is contagious!";
-    }
-    if(mood == "Downcast"){
-        document.getElementById("personalizedMessage").textContent = name + ", don't give up! Each day is a new beginning.";
-    }
+  });
 
-    //Weather API Call:
-    //Use geocoding API to convert city name into coordinates:
-    var geocodeapiURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + '&appid=4e9dab74dadddaa9b893280c60fbd5eb';
-
-    fetch(geocodeapiURL).then(function(response){
-        if(response.ok){
-            response.json().then(function(geocode){
-                //Set the longitude and latitude variables and then call the weather function:
-                var lat = geocode[0].lat;
-                var long = geocode[0].lon;
-                getCurrentWeather(cityInput, lat, long);
-            });
-        }
-    });
-    
-
-    //Set search bar back to default:
-    document.querySelector('#inputName').value = '';
+  //Set search bar back to default:
+  document.querySelector("#inputName").value = "";
 });
 
 document.getElementById("dashboard").style.display = "none";
-
 
 //Function for the quote of the day
 function getQuoteApi() {
@@ -86,7 +93,7 @@ function getQuoteApi() {
       document.getElementById("quote").innerHTML = "'" + response.content + "'";
       console.log(quote);
       document.getElementById("quoteAuthor").innerHTML =
-        "author: " + response.originator.name;
+        "- " + response.originator.name;
     })
     .catch((err) => {
       console.log(err);
@@ -94,7 +101,6 @@ function getQuoteApi() {
 }
 
 var fetchButton = document.getElementById("quoteBtn");
-
 fetchButton.addEventListener("click", getQuoteApi);
 
 var getAries = function () {
@@ -148,35 +154,65 @@ var getZodiac = function (sign) {
 };
 
 getZodiac(Scorpio);
-
+//TEST
 
 //Weather API:
 //Create the current weather funtion for the API call:
-var getCurrentWeather = function(cityInput, lat, long){
-    //Parameters are the long and lat from geocode API, excluded data, units = imperial, and the individual API key code.
-    var apiURL = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat+ '&lon=' + long + '&exclude=minutely,hourly,alerts&units=imperial&appid=4e9dab74dadddaa9b893280c60fbd5eb';
+var getCurrentWeather = function (searchInput, lat, long) {
+  //passing in city, which will be the user input when this function is called in the search submit function.
+  //Parameters are the long and lat from geocode API, excluded data, units = imperial, and the individual API key code.
+  var apiURL =
+    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+    lat +
+    "&lon=" +
+    long +
+    "&exclude=minutely,hourly,alerts&units=imperial&appid=4e9dab74dadddaa9b893280c60fbd5eb";
 
-    fetch(apiURL).then(function(response){ //fetching the API with a promise.
-       if(response.ok){
-            response.json().then(function(data){
-                displayCurrentWeather(cityInput, data);
-            });
-       }
-    });
-};
-           
-function displayCurrentWeather(cityInput, array){
-    //Create the City Name heading:
-    var cityName = cityInput + " " ;
-    var curEmoji = array.current.weather[0].icon;
-    document.querySelector("#city").textContent = cityName;
-    document.querySelector("#weatherIcon").setAttribute("src", "https://openweathermap.org/img/wn/" + curEmoji + "@2x.png");
-
-    //Create the temp variable and dynamically add it to the page:
-    var temp = array.current.temp + " °F";
-    document.getElementById("temp").textContent = temp;
+  fetch(apiURL).then(function (response) {
+    //fetching the API with a promise.
+    if (response.ok) {
+      response.json().then(function (data) {});
+    }
+  });
 };
 
+//Weather API:
+//Create the current weather funtion for the API call:
+var getCurrentWeather = function (cityInput, lat, long) {
+  //Parameters are the long and lat from geocode API, excluded data, units = imperial, and the individual API key code.
+  var apiURL =
+    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+    lat +
+    "&lon=" +
+    long +
+    "&exclude=minutely,hourly,alerts&units=imperial&appid=4e9dab74dadddaa9b893280c60fbd5eb";
+
+  fetch(apiURL).then(function (response) {
+    //fetching the API with a promise.
+    if (response.ok) {
+      response.json().then(function (data) {
+        displayCurrentWeather(cityInput, data);
+      });
+    }
+  });
+};
+
+function displayCurrentWeather(cityInput, array) {
+  //Create the City Name heading:
+  var cityName = cityInput + " ";
+  var curEmoji = array.current.weather[0].icon;
+  document.querySelector("#city").textContent = cityName;
+  document
+    .querySelector("#weatherIcon")
+    .setAttribute(
+      "src",
+      "https://openweathermap.org/img/wn/" + curEmoji + "@2x.png"
+    );
+
+  //Create the temp variable and dynamically add it to the page:
+  var temp = array.current.temp + " °F";
+  document.getElementById("temp").textContent = temp;
+}
 
 //API calls for Cat and Dog Pictures:
 var dogImage = document.getElementById("dogImg");
@@ -219,3 +255,5 @@ function randomCat(event) {
 
 dogImage.addEventListener("click", randomDog);
 catImage.addEventListener("click", randomCat);
+
+//some random text

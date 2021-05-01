@@ -1,110 +1,111 @@
-#heading{
-    font-size: 5vw;
-    font-family: 'Tenor Sans', sans-serif;
-    text-align: center;
-    margin-top: 5%;
+#heading {
+  font-size: 5vw;
+  font-family: "Tenor Sans", sans-serif;
+  text-align: center;
+  margin-top: 5%;
 }
 
-#logo{
-    position: relative;
-    margin-bottom: 5%;
+#logo {
+  position: relative;
+  margin-bottom: 5%;
 }
 
-#logoText{
-    position: absolute;
-    left: 5%;
-    top: 5%;
-    font-size: 5vw;
-    width: 25%;
-    color: white;
-    text-shadow: 0px 5px black;
-    line-height: 1;
+#logoText {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  font-size: 5vw;
+  width: 25%;
+  color: white;
+  text-shadow: 0px 5px black;
+  line-height: 1;
 }
 
-.dashboard{
-    display: block;
+.dashboard {
+  display: block;
 }
 
-#horoscopeSection{
-    background-color: blueviolet;
-    padding: 3%;
+#horoscopeSection {
+  background-color: blueviolet;
+  padding: 3%;
 }
-#horoscopeImg{
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
+#horoscopeImg {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
 }
-#horoscopeText{
-    display: inline-block;
-    height: 40px;
-    background-color: white;
+#horoscopeText {
+  display: inline-block;
+  height: 40px;
+  background-color: white;
 }
 
-#animalsSection{
-    background-color: green;
-    padding: 2%;
-    text-align: right;
-    font-size: 2vw;
-    color: black;
+#animalsSection {
+  background-color: green;
+  padding: 2%;
+  text-align: right;
+  font-size: 2vw;
+  color: black;
 }
-#animalText{
-    font-size: 1vw;
-    margin-right:7%;
+#animalText {
+  font-size: 1vw;
+  margin-right: 7%;
 }
 #catImg {
-    display: inline-block;
-    height: 150px;
-    width: 150px;
-    object-fit: cover;
-    border-radius: 75px;
-    box-shadow: 0px 3px 3px 0px rgb(41, 40, 43);
-  }
-  #dogImg {
-    display: inline-block;
-    height: 150px;
-    width: 150px;
-    object-fit: cover;
-    border-radius: 75px;
-    box-shadow: 0px 3px 3px 0px rgb(41, 40, 43);
-  }
-#dogImg:hover, #catImg:hover{
-    cursor: url("../DailyVibes/Assets/dogPaw.png"), auto;
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 75px;
+  box-shadow: 0px 3px 3px 0px rgb(41, 40, 43);
+}
+#dogImg {
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 75px;
+  box-shadow: 0px 3px 3px 0px rgb(41, 40, 43);
+}
+#dogImg:hover,
+#catImg:hover {
+  cursor: url("../DailyVibes/Assets/dogPaw.png"), auto;
 }
 
-#personalSection{
-    background-color: palevioletred;
-    font-size: 3vw;
-    text-align: center;
+#personalSection {
+  background-color: palevioletred;
+  font-size: 3vw;
+  text-align: center;
 }
-#personalizedMessage{
-    font-size: 2vw;
-    margin-top:1%;
+#personalizedMessage {
+  font-size: 2vw;
+  margin-top: 1%;
 }
-#toDo{
-    font-size: 2vw;
-    margin-top: 1%; 
-}
-
-#weather{
-    display: flex;
-    text-align: center;
-}
-#city{
-    font-size: 1.5vw;
-}
-#temp{
-    font-size: 1vw;
+#toDo {
+  font-size: 2vw;
+  margin-top: 1%;
 }
 
-#quoteSection{
-    background-color: yellow;
-    padding: 3%;
-    text-align: center;
+#weather {
+  display: flex;
+  text-align: center;
+}
+#city {
+  font-size: 1.5vw;
+}
+#temp {
+  font-size: 1vw;
 }
 
-#musicSection{
-    background-color: lightblue;
-    padding: 3%;
-    text-align: center;
+#quoteSection {
+  background-color: yellow;
+  padding: 3%;
+  text-align: center;
+}
+
+#musicSection {
+  background-color: lightblue;
+  padding: 3%;
+  text-align: center;
 }
