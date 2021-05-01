@@ -93,3 +93,7 @@
     padding: 3%;
     text-align: center;
 }
+
+.hide {
+    display: none;
+}

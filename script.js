@@ -32,18 +32,26 @@ letsGoButton.addEventListener('click', function(e){
 
     //Print personalized message to user based on mood:
     if(mood == "Irritated"){
-        console.log("Don't be upset!")
-        document.getElementById("personalizedMessage").textContent = name + ", it's okay to take a step back!";
-    }
-    if(mood == "Chill"){
-        document.getElementById("personalizedMessage").textContent = name + ", keep on vibing!";
-    }
-    if(mood == "Joyful"){
-        document.getElementById("personalizedMessage").textContent = name + ", your happiness is contagious!";
-    }
-    if(mood == "Downcast"){
-        document.getElementById("personalizedMessage").textContent = name + ", don't give up! Each day is a new beginning.";
-    }
+      // Rock playlist
+      console.log("Don't be upset!")
+      document.getElementById("personalizedMessage").textContent = name + ", it's okay to take a step back!";
+      irritatedPlaylist.style.display='block';
+  }
+  if(mood == "Chill"){
+      // Lofi playlist
+      document.getElementById("personalizedMessage").textContent = name + ", keep on vibing!";
+      chillPlaylist.style.display='block';
+  }
+  if(mood == "Energetic"){
+      // EDM playlist
+      document.getElementById("personalizedMessage").textContent = name + ", your happiness is contagious!";
+      energeticPlaylist.style.display='block';
+  }
+  if(mood == "Downcast"){
+      // Emo playlist
+      document.getElementById("personalizedMessage").textContent = name + ", don't give up! Each day is a new beginning.";
+      downcastPlaylist.style.display='block';
+  }
 
     // //Weather API Call:
     // var searchInput = document.querySelector('#searchBar').value;
