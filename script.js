@@ -45,7 +45,7 @@ letsGoButton.addEventListener("click", function (e) {
       irritatedPlaylist.style.display = 'block';
     document.getElementById('userVibe').textContent = "Rock music to fit your irritated vibe!";
     // Change background based on mood:
-    document.body.style.backgroundImage = "URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg')";
+    getWallpaper();
     document.body.style.color = "white";
   }
   if (mood == "Chill") {
@@ -54,6 +54,9 @@ letsGoButton.addEventListener("click", function (e) {
       //Music playlist based on mood:
       chillPlaylist.style.display = 'block';
       document.getElementById('userVibe').textContent = "Lofi for your chill vibe!";
+      // Change background based on mood:
+    getWallpaper();
+    document.body.style.color = "white";
   }
   if (mood == "Energetic") {
     //Random personalized message based on mood from the array: 
@@ -61,6 +64,9 @@ letsGoButton.addEventListener("click", function (e) {
       //Music playlist based on mood:
       energeticPlaylist.style.display = 'block';
       document.getElementById('userVibe').textContent = "A party playlist to fit your energetic vibe!";
+      // Change background based on mood:
+    getWallpaper();
+    document.body.style.color = "white";
   }
   if (mood == "Downcast") {
     //Random personalized message based on mood from the array: 
@@ -68,6 +74,9 @@ letsGoButton.addEventListener("click", function (e) {
       //Music playlist based on mood:
       downcastPlaylist.style.display = 'block';
       document.getElementById('userVibe').textContent = "Emo music to fit your downcast vibe!";
+      // Change background based on mood:
+    getWallpaper();
+    document.body.style.color = "white";
   }
   //Quote Call
   getQuoteApi();
@@ -239,3 +248,26 @@ function randomCat(event) {
 dogImage.addEventListener("click", randomDog);
 catImage.addEventListener("click", randomCat);
 
+
+//Create dynamic wallpaper:
+var getWallpaper = function() {
+  var myHeaders = new Headers();
+  myHeaders.append("Authorization", "Bearer 8a4fad9f70ab2c2baf42415ee4ac88e1ebbbd653");
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+  };
+  fetch("https://api.imgur.com/3/album/JnI5N/images/", requestOptions)
+    .then((response) => response.json())
+    // console.log(response)
+    .then((result) => {
+      // console.log(result.data)
+      console.log(result.data[Math.floor(Math.random() * 32)].link);
+      var wallpaper = result.data[Math.floor(Math.random() * 32)].link;
+      document.body.style.backgroundImage = `url(${wallpaper})`;
+    })
+    .catch(error => {
+      console.log('error', error);
+    })
+  };
