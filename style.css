@@ -1,3 +1,12 @@
+*{
+  font-family: "Tenor Sans", sans-serif;
+}
+body{
+  /* background-image: URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 #heading {
   font-size: 5vw;
   font-family: "Tenor Sans", sans-serif;
@@ -25,8 +34,14 @@
   display: block;
 }
 
+.card{
+/* Use an rgb color value and the 0.2 at the end to make the background transparent while keeping the card content completely visible: */
+  background:rgb(69, 89, 128, 0.4);
+}
+
+
 #horoscopeSection {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   padding: 3%;
 }
 #horoscopeImg {
@@ -42,15 +57,17 @@
 }
 
 #animalsSection {
-  background-color: green;
   padding: 2%;
-  text-align: right;
+  padding-left: 20%;
+  text-align: center;
   font-size: 2vw;
   color: black;
 }
 #animalText {
   font-size: 1vw;
-  margin-right: 7%;
+}
+#animalHeader{
+  font-size: 2vw;
 }
 #catImg {
   display: inline-block;
@@ -74,7 +91,7 @@
 }
 
 #personalSection {
-  background-color: palevioletred;
+  /* background-color: palevioletred; */
   font-size: 3vw;
   text-align: center;
 }
@@ -88,24 +105,33 @@
 }
 
 #weather {
-  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  padding-left:5%;
+  padding-right: 5%;
 }
+
 #city {
   font-size: 1.5vw;
+  line-height: 1;
 }
 #temp {
   font-size: 1vw;
+  line-height: 1;
+}
+#weatherIcon{
+  width: 50%;  
 }
 
 #quoteSection {
-  background-color: yellow;
+  /* background-color: yellow; */
   padding: 3%;
   text-align: center;
 }
 
 #musicSection{
-    background-color: lightblue;
+    /* background-color: lightblue; */
     padding: 3%;
     text-align: center;
 }
@@ -113,3 +139,12 @@
 .hide {
     display: none;
 }
+
+@media screen and (max-width: 1300px) {
+  #animalsSection{
+      padding: 2%;
+  }
+}
+
+
+

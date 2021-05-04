@@ -25,7 +25,7 @@
     </header>
 
     <!-- Below is the form to handle the initial user set-up for the dashboard Gets hidden after submission: -->
-    <div class="field is-grouped is-grouped-centered" id = "inputForm">
+    <div class="field is-grouped is-grouped-centered is-grouped-multiline" id = "inputForm">
         <p class="field control">
             <div class="control has-icons-left">
               <input id = "inputName" class="input" type="text" placeholder="What's your name?">
@@ -39,7 +39,7 @@
           <div class="control has-icons-left">
             <input id = "cityName" class="input" type="text" placeholder="Nearest city?">
             <span class="icon is-left">
-              <i class="fas fa-user-astronaut"></i>
+              <i class="fas fa-globe-americas"></i>
             </span>
           </div>
       </p>
@@ -69,7 +69,7 @@
                 <option>Taurus *April 20 – May 20*</option>
                 <option>Gemini *May 21 – June 20*</option>
                 <option>Cancer *June 21 – July 22*</option>
-                <option>Leo July *23 – August 22*</option>
+                <option>Leo *July 23 – August 22*</option>
                 <option>Virgo *August 23 – September 22*</option>
                 <option>Libra *September 23 – October 22*</option>
                 <option>Scorpio *October 23 – November 22*</option>
@@ -102,10 +102,14 @@
             </div>
             <!-- <div class="column is-half"></div> -->
             <div class="column is-half" id = "animalsSection">
-              <p>Today's Friends!</p>
-              <img id = "catImg" src = "Assets/pexels-anna-shvets-4587959.jpg">
-              <img id = "dogImg" src = "Assets/pexels-anna-shvets-4588052.jpg">
-              <p id = "animalText">Click for New Friends</p>
+              <div class = "card">
+                <div class = "card-content">
+                  <p id = "animalHeader">Today's Friends!</p>
+                <img id = "catImg" src = "Assets/pexels-anna-shvets-4587959.jpg">
+                <img id = "dogImg" src = "Assets/pexels-anna-shvets-4588052.jpg">
+                <p id = "animalText">Click images for New Friends</p>
+                </div>
+              </div>
             </div>
 
            <!--Second Group, - middle content-->
@@ -113,17 +117,28 @@
             <div class="column is-half" id = "personalSection">
                 <p id = "currentDay"></p>
                 <p id="personalizedMessage">[NAME], today will be awesome!</p>
-                <p id="toDo">What do you want to accomplish today?</p>
-                <input class="input is-rounded" type="text" placeholder="Notes">
+                <!-- <p id="toDo">What do you want to accomplish today?</p>
+                <input class="input is-rounded" type="text" placeholder="Notes"> -->
             </div>
             <div class="column is-one-quarter"></div>
 
             <!--Last line - corner content-->
             <div class="column is-one-quarter" id = "weather">
-              <p id = "city"></p>
-              <img id = "weatherIcon">
-              <p id = "temp"></p>              
+              <div class = "card">
+                <div class = "card-content">
+                    <div class = "content">
+                      <p id = "city"></p>
+                      <p id = "temp"></p>
+                    </div>
+                    <div class = "content">
+                      <figure class = "image">
+                        <img id = "weatherIcon">
+                      </figure>
+                    </div>
+                </div>
+              </div>                
             </div>
+
             <div class="column is-half" id = "quoteSection">
               <p id="quote"></p>
               <p id="quoteAuthor"></p>
