@@ -8,10 +8,12 @@ var chillPlaylist = document.getElementById('chill')
 var irritatedPlaylist = document.getElementById('irritated')
 var energeticPlaylist = document.getElementById('energetic')
 var downcastPlaylist = document.getElementById('downcast')
-// var personalMessageArray = [{},{},{},{}];
+var personalMessageArray = [{irritated:{0:", take five, you've got this!", 1:", it's okay to take a step back.", 2:", jot down your thoughts, it's okay to be upset!"},
+  chill:{0: ", keep on vibing!", 1:", enjoy today!", 2:", relax, you've earned it!"}, 
+  energetic:{0: ", your energy is contagious!", 1:", there's no time like the present!", 2:", let's get going!"},
+  downcast:{0: ", don't give up, you're awesome!", 1:", each day is a new beginning!", 2:", you are loved, and you are enough!"}}];
 
-//Create the zodiac variables:
-var Scorpio = "Scorpio";
+document.getElementById("dashboard").style.display = "none";
 
 //Add eventlistener for the click on the beginning page form submission:
 letsGoButton.addEventListener("click", function (e) {
@@ -21,12 +23,9 @@ letsGoButton.addEventListener("click", function (e) {
   var zodiac = userZodiac.value;
   var cityInput = cityName.value;
 
-  //Comment - var sign is going to equal the userZodiac.value split at just the zodiac name, which is the first word.
-  //Try parse, or google how to split out first word. Week 6 activity 8 and 10.
-
-  console.log(name);
-  console.log(mood);
-  console.log(zodiac);
+  // console.log(name);
+  // console.log(mood);
+  // console.log(zodiac);
   //Hide main header and user input form on button click and display dashboard:
   document.getElementById("inputForm").style.display = "none";
   document.getElementById("mainHeader").style.display = "none";
@@ -36,29 +35,37 @@ letsGoButton.addEventListener("click", function (e) {
   var currentDay = now.format("MMM DD, YYYY");
   document.getElementById("currentDay").textContent = currentDay;
 
-  //Print personalized message to user based on mood:
+  //Get a random integer to use for the personalized message:
+  var arrayIndex = Math.floor(Math.random()* 3);
+
   if (mood == "Irritated") {
-    console.log("Don't be upset!");
-      document.getElementById("personalizedMessage").textContent =
-      name + ", it's okay to take a step back!";
+    //Random personalized message based on mood from the array:    
+    document.getElementById("personalizedMessage").textContent = name + personalMessageArray[0].irritated[arrayIndex];
+    //Music playlist based on mood:
       irritatedPlaylist.style.display = 'block';
-      document.getElementById('userVibe').textContent = "Here's some rock music to fit your irritated vibe";
+    document.getElementById('userVibe').textContent = "Here's some rock music to fit your irritated vibe";
+    // Change background based on mood:
+    document.body.style.backgroundImage = "URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg')";
+    document.body.style.color = "white";
   }
   if (mood == "Chill") {
-      document.getElementById("personalizedMessage").textContent =
-      name + ", keep on vibing!";
+    //Random personalized message based on mood from the array: 
+    document.getElementById("personalizedMessage").textContent = name + personalMessageArray[0].chill[arrayIndex];
+      //Music playlist based on mood:
       chillPlaylist.style.display = 'block';
       document.getElementById('userVibe').textContent = "Here's some lofi for your chill vibe";
   }
   if (mood == "Energetic") {
-      document.getElementById("personalizedMessage").textContent =
-      name + ", your happiness is contagious!";
+    //Random personalized message based on mood from the array: 
+    document.getElementById("personalizedMessage").textContent = name + personalMessageArray[0].energetic[arrayIndex];
+      //Music playlist based on mood:
       energeticPlaylist.style.display = 'block';
       document.getElementById('userVibe').textContent = "Here's a little party playlist to fit your energetic vibe";
   }
   if (mood == "Downcast") {
-      document.getElementById("personalizedMessage").textContent =
-      name + ", don't give up! Each day is a new beginning.";
+    //Random personalized message based on mood from the array: 
+    document.getElementById("personalizedMessage").textContent = name + personalMessageArray[0].downcast[arrayIndex];
+      //Music playlist based on mood:
       downcastPlaylist.style.display = 'block';
       document.getElementById('userVibe').textContent = "Here's a little emo music to fit your downcast vibe";
   }
@@ -85,9 +92,17 @@ letsGoButton.addEventListener("click", function (e) {
 
   //Set search bar back to default:
   document.querySelector("#inputName").value = "";
+
+  //Comment - var sign is going to equal the userZodiac.value split at just the zodiac name, which is the first word.
+  //Try parse, or google how to split out first word. Week 6 activity 8 and 10.
+  var zodiacArray = zodiac.split(" ");
+  console.log(zodiacArray); //Working!
+  var sign = zodiacArray[0];
+  console.log(sign); //Working!
+  getZodiac(sign);
+
 });
 
-document.getElementById("dashboard").style.display = "none";
 
 //Function for the quote of the day
 function getQuoteApi() {
@@ -115,28 +130,6 @@ function getQuoteApi() {
 var fetchButton = document.getElementById("quoteBtn");
 fetchButton.addEventListener("click", getQuoteApi);
 
-var getAries = function () {
-  fetch("https://devbrewer-horoscope.p.rapidapi.com/today/short/Aries", {
-    method: "GET",
-    headers: {
-      "x-rapidapi-key": "9c3068ce65msha6850c71271b7fcp1522ebjsn97a0e9da5d54",
-      "x-rapidapi-host": "devbrewer-horoscope.p.rapidapi.com",
-    },
-  })
-    .then((response) => response.json())
-    // console.log(response)
-    .then((data) => {
-      console.log(data);
-      var signHoroscope = data.Aries.Today;
-      console.log(signHoroscope);
-      document.getElementById("horoscopeText").textContent = signHoroscope;
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  // "https://devbrewer-horoscope.p.rapidapi.com/today/short/" + zodiac;
-  //https://devbrewer-horoscope.p.rapidapi.com/today/short/Cancer"
-};
 
 var getZodiac = function (sign) {
   fetch("https://devbrewer-horoscope.p.rapidapi.com/today/short/" + sign, {
@@ -165,28 +158,6 @@ var getZodiac = function (sign) {
   //https://devbrewer-horoscope.p.rapidapi.com/today/short/Cancer"
 };
 
-getZodiac(Scorpio);
-//TEST
-
-//Weather API:
-//Create the current weather funtion for the API call:
-var getCurrentWeather = function (searchInput, lat, long) {
-  //passing in city, which will be the user input when this function is called in the search submit function.
-  //Parameters are the long and lat from geocode API, excluded data, units = imperial, and the individual API key code.
-  var apiURL =
-    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-    lat +
-    "&lon=" +
-    long +
-    "&exclude=minutely,hourly,alerts&units=imperial&appid=4e9dab74dadddaa9b893280c60fbd5eb";
-
-  fetch(apiURL).then(function (response) {
-    //fetching the API with a promise.
-    if (response.ok) {
-      response.json().then(function (data) {});
-    }
-  });
-};
 
 //Weather API:
 //Create the current weather funtion for the API call:
@@ -268,4 +239,3 @@ function randomCat(event) {
 dogImage.addEventListener("click", randomDog);
 catImage.addEventListener("click", randomCat);
 
-//some random text
