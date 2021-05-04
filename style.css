@@ -4,7 +4,7 @@
 }
 body{
   /* background-image: URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg'); */
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
 }
 
