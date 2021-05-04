@@ -39,28 +39,28 @@ letsGoButton.addEventListener("click", function (e) {
   //Print personalized message to user based on mood:
   if (mood == "Irritated") {
     console.log("Don't be upset!");
-    document.getElementById("personalizedMessage").textContent =
+      document.getElementById("personalizedMessage").textContent =
       name + ", it's okay to take a step back!";
       irritatedPlaylist.style.display = 'block';
-    document.getElementById('userVibe').textContent = "Here's some rock music to fit your irritated vibe";
+      document.getElementById('userVibe').textContent = "Here's some rock music to fit your irritated vibe";
   }
   if (mood == "Chill") {
-    document.getElementById("personalizedMessage").textContent =
+      document.getElementById("personalizedMessage").textContent =
       name + ", keep on vibing!";
       chillPlaylist.style.display = 'block';
-    document.getElementById('userVibe').textContent = "Here's some lofi for your chill vibe";
+      document.getElementById('userVibe').textContent = "Here's some lofi for your chill vibe";
   }
   if (mood == "Energetic") {
-    document.getElementById("personalizedMessage").textContent =
+      document.getElementById("personalizedMessage").textContent =
       name + ", your happiness is contagious!";
       energeticPlaylist.style.display = 'block';
-    document.getElementById('userVibe').textContent = "Here's a little EDM to fit your energetic vibe";
+      document.getElementById('userVibe').textContent = "Here's a little party playlist to fit your energetic vibe";
   }
   if (mood == "Downcast") {
-    document.getElementById("personalizedMessage").textContent =
+      document.getElementById("personalizedMessage").textContent =
       name + ", don't give up! Each day is a new beginning.";
       downcastPlaylist.style.display = 'block';
-    document.getElementById('userVibe').textContent = "Here's a little emo music to fit your downcast vibe";
+      document.getElementById('userVibe').textContent = "Here's a little emo music to fit your downcast vibe";
   }
   //Quote Call
   getQuoteApi();
