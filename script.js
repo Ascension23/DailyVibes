@@ -43,31 +43,31 @@ letsGoButton.addEventListener("click", function (e) {
     document.getElementById("personalizedMessage").textContent = name + personalMessageArray[0].irritated[arrayIndex];
     //Music playlist based on mood:
       irritatedPlaylist.style.display = 'block';
-    document.getElementById('userVibe').textContent = "Here's some rock music to fit your irritated vibe";
+    document.getElementById('userVibe').textContent = "Rock music to fit your irritated vibe!";
     // Change background based on mood:
-    // document.body.style.backgroundImage = "URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg')";
-    // document.body.style.color = "white";
+    document.body.style.backgroundImage = "URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg')";
+    document.body.style.color = "white";
   }
   if (mood == "Chill") {
     //Random personalized message based on mood from the array: 
     document.getElementById("personalizedMessage").textContent = name + personalMessageArray[0].chill[arrayIndex];
       //Music playlist based on mood:
       chillPlaylist.style.display = 'block';
-      document.getElementById('userVibe').textContent = "Here's some lofi for your chill vibe";
+      document.getElementById('userVibe').textContent = "Lofi for your chill vibe!";
   }
   if (mood == "Energetic") {
     //Random personalized message based on mood from the array: 
     document.getElementById("personalizedMessage").textContent = name + personalMessageArray[0].energetic[arrayIndex];
       //Music playlist based on mood:
       energeticPlaylist.style.display = 'block';
-      document.getElementById('userVibe').textContent = "Here's a little party playlist to fit your energetic vibe";
+      document.getElementById('userVibe').textContent = "A party playlist to fit your energetic vibe!";
   }
   if (mood == "Downcast") {
     //Random personalized message based on mood from the array: 
     document.getElementById("personalizedMessage").textContent = name + personalMessageArray[0].downcast[arrayIndex];
       //Music playlist based on mood:
       downcastPlaylist.style.display = 'block';
-      document.getElementById('userVibe').textContent = "Here's a little emo music to fit your downcast vibe";
+      document.getElementById('userVibe').textContent = "Emo music to fit your downcast vibe!";
   }
   //Quote Call
   getQuoteApi();
