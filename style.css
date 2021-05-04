@@ -1,8 +1,9 @@
 *{
   font-family: "Tenor Sans", sans-serif;
+  
 }
 body{
-  background-image: URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg');
+  /* background-image: URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg'); */
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -37,6 +38,7 @@ body{
 .card{
 /* Use an rgb color value and the 0.2 at the end to make the background transparent while keeping the card content completely visible: */
   background:rgb(69, 89, 128, 0.4);
+  color: white;
 }
 
 
@@ -52,8 +54,6 @@ body{
 }
 #horoscopeText {
   display: inline-block;
-  height: 40px;
-  background-color: white;
 }
 
 #animalsSection {
@@ -92,16 +92,14 @@ body{
 
 #personalSection {
   /* background-color: palevioletred; */
-  font-size: 3vw;
+  font-size: 5vw;
   text-align: center;
+  text-shadow: 0px 5px rgb(39, 39, 43);
 }
 #personalizedMessage {
-  font-size: 2vw;
+  font-size: 3vw;
   margin-top: 1%;
-}
-#toDo {
-  font-size: 2vw;
-  margin-top: 1%;
+  text-shadow: 0px 3px rgb(39, 39, 43);
 }
 
 #weather {
@@ -128,12 +126,17 @@ body{
   /* background-color: yellow; */
   padding: 3%;
   text-align: center;
+  font-size: 1.5vw;
 }
 
 #musicSection{
     /* background-color: lightblue; */
     padding: 3%;
     text-align: center;
+}
+#userVibe{
+  font-size: 1vw;
+  text-align: center;
 }
 
 .hide {
