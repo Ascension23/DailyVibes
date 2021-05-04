@@ -45,8 +45,8 @@ letsGoButton.addEventListener("click", function (e) {
       irritatedPlaylist.style.display = 'block';
     document.getElementById('userVibe').textContent = "Here's some rock music to fit your irritated vibe";
     // Change background based on mood:
-    document.body.style.backgroundImage = "URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg')";
-    document.body.style.color = "white";
+    // document.body.style.backgroundImage = "URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg')";
+    // document.body.style.color = "white";
   }
   if (mood == "Chill") {
     //Random personalized message based on mood from the array: 
