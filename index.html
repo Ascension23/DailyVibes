@@ -102,9 +102,7 @@
               <div class = "card">
                 <div class = "card-content">
                   <div class = "content">
-                    <figure class = "image">
-                      <img src = "Assets/horoscopeTest.png" id ="horoscopeImg">
-                    </figure>
+                    <p id ="horoscopeSign"></p>
                   </div>
                     <div class = "content">
                       <p id= "horoscopeText">Your Daily Horoscope will go here</p>
@@ -135,15 +133,11 @@
             <!--Last line - corner content-->
             <div class="column is-one-quarter" id = "weather">
               <div class = "card">
-                <div class = "card-content">
+                <div class = "card-content" id = "weather-content">
                     <div class = "content">
                       <p id = "city"></p>
                       <p id = "temp"></p>
-                    </div>
-                    <div class = "content">
-                      <figure class = "image">
-                        <img id = "weatherIcon">
-                      </figure>
+                      <img class = "card-image" id = "weatherIcon">
                     </div>
                 </div>
               </div>                
@@ -156,10 +150,10 @@
             </div>
             <div class="column is-one-quarter" id = "musicSection">
                 <p id="userVibe"></p>
-                <iframe id = "chill" style = "display:none" src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                <iframe id = "irritated" style = "display:none" src="https://open.spotify.com/embed/playlist/3ZzI0mlze2kT37u9lQwUcO" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                <iframe id = "energetic" style = "display:none" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXa2PvUpywmrr" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                <iframe id = "downcast" style = "display:none" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX9wa6XirBPv8" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <iframe class = "musicPlayer" id = "chill" style = "display:none" src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <iframe class = "musicPlayer" id = "irritated" style = "display:none" src="https://open.spotify.com/embed/playlist/3ZzI0mlze2kT37u9lQwUcO" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <iframe class = "musicPlayer" id = "energetic" style = "display:none" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXa2PvUpywmrr" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <iframe class = "musicPlayer" id = "downcast" style = "display:none" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX9wa6XirBPv8" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
             </div>
           </div>
 

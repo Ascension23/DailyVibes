@@ -30,6 +30,7 @@ letsGoButton.addEventListener("click", function (e) {
   document.getElementById("inputForm").style.display = "none";
   document.getElementById("mainHeader").style.display = "none";
   document.getElementById("dashboard").style.display = "block";
+  
 
   //Print the date to the page:
   var currentDay = now.format("MMM DD, YYYY");
@@ -45,6 +46,7 @@ letsGoButton.addEventListener("click", function (e) {
       irritatedPlaylist.style.display = 'block';
     document.getElementById('userVibe').textContent = "Rock music to fit your irritated vibe!";
     // Change background based on mood:
+    document.body.style.backgroundImage = "URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg')";
     // getWallpaper();
     document.body.style.color = "white";
   }
@@ -55,6 +57,7 @@ letsGoButton.addEventListener("click", function (e) {
       chillPlaylist.style.display = 'block';
       document.getElementById('userVibe').textContent = "Lofi for your chill vibe!";
       // Change background based on mood:
+      document.body.style.backgroundImage = "URL('./Assets/pexels-martin-damboldt-814499.jpg')";
     // getWallpaper();
     document.body.style.color = "white";
   }
@@ -65,6 +68,7 @@ letsGoButton.addEventListener("click", function (e) {
       energeticPlaylist.style.display = 'block';
       document.getElementById('userVibe').textContent = "A party playlist to fit your energetic vibe!";
       // Change background based on mood:
+      document.body.style.backgroundImage = "URL('./Assets/pexels-pixabay-206359.jpg')";
     // getWallpaper();
     document.body.style.color = "white";
   }
@@ -75,6 +79,7 @@ letsGoButton.addEventListener("click", function (e) {
       downcastPlaylist.style.display = 'block';
       document.getElementById('userVibe').textContent = "Emo music to fit your downcast vibe!";
       // Change background based on mood:
+      document.body.style.backgroundImage = "URL('./Assets/pexels-kyle-roxas-2138922.jpg')";
     // getWallpaper();
     document.body.style.color = "white";
   }
@@ -101,6 +106,7 @@ letsGoButton.addEventListener("click", function (e) {
 
   //Set search bar back to default:
   document.querySelector("#inputName").value = "";
+  document.querySelector("#cityName").value = "";
 
   //Comment - var sign is going to equal the userZodiac.value split at just the zodiac name, which is the first word.
   //Try parse, or google how to split out first word. Week 6 activity 8 and 10.
@@ -109,9 +115,10 @@ letsGoButton.addEventListener("click", function (e) {
   var sign = zodiacArray[0];
   console.log(sign); //Working!
   getZodiac(sign);
+  document.getElementById("horoscopeSign").textContent = "Dear " + sign +","
 
 });
-
+document.querySelector("#inputName").value = "";
 
 //Function for the quote of the day
 function getQuoteApi() {
@@ -204,7 +211,7 @@ function displayCurrentWeather(cityInput, array) {
   //Create the temp variable and dynamically add it to the page:
   var temp = array.current.temp + " °F";
   document.getElementById("temp").textContent = temp;
-}
+};
 
 //API calls for Cat and Dog Pictures:
 var dogImage = document.getElementById("dogImg");
@@ -225,7 +232,7 @@ function randomDog(event) {
       });
     }
   });
-}
+};
 
 //Create the function that will run on cat image click:
 function randomCat(event) {
@@ -243,12 +250,14 @@ function randomCat(event) {
       });
     }
   });
-}
+};
 
 dogImage.addEventListener("click", randomDog);
 catImage.addEventListener("click", randomCat);
 
 
+
+//Commented out - errors with too many requests
 //Create dynamic wallpaper:
 // var getWallpaper = function() {
 //   var myHeaders = new Headers();
@@ -262,7 +271,6 @@ catImage.addEventListener("click", randomCat);
 //     .then((response) => response.json())
 //     // console.log(response)
 //     .then((result) => {
-//       console.log(result)
 //       // console.log(result.data)
 //       console.log(result.data[Math.floor(Math.random() * 32)].link);
 //       var wallpaper = result.data[Math.floor(Math.random() * 32)].link;
