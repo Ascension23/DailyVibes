@@ -2,7 +2,7 @@
   font-family: "Tenor Sans", sans-serif;
 }
 body{
-  /* background-image: URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg'); */
+  background-image: URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
