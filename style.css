@@ -1,9 +1,11 @@
 * {
   font-family: "Archivo", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
 }
+
 body {
-  /* background-image: URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg'); */
-  background-size: 100%;
+  /* background-image: URL('./Assets/pexels-martin-damboldt-814499.jpg'); */
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -40,7 +42,6 @@ body {
 }
 
 #horoscopeSection {
-  /* background-color: blueviolet; */
   padding: 3%;
 }
 #horoscopeImg {
@@ -51,6 +52,7 @@ body {
 }
 #horoscopeText {
   display: inline-block;
+  font-size: 1.2vw;
 }
 
 #animalsSection {
@@ -88,7 +90,6 @@ body {
 }
 
 #personalSection {
-  /* background-color: palevioletred; */
   font-size: 5vw;
   text-align: center;
   text-shadow: 0px 5px rgb(39, 39, 43);
@@ -106,7 +107,9 @@ body {
   padding-left: 5%;
   padding-right: 5%;
 }
-
+.card-image {
+  margin-left: 25%;
+}
 #city {
   font-size: 1.5vw;
   line-height: 1;
@@ -120,28 +123,93 @@ body {
 }
 
 #quoteSection {
-  /* background-color: yellow; */
   padding: 3%;
   text-align: center;
   font-size: 1.5vw;
 }
 
 #musicSection {
-  /* background-color: lightblue; */
-  padding: 3%;
-  text-align: center;
+  padding-left: 3%;
 }
 #userVibe {
   font-size: 1vw;
-  text-align: center;
+}
+.musicPlayer {
+  width: 300px;
+  height: 280px;
 }
 
 .hide {
   display: none;
 }
 
+/* Add in additional responsiveness for smaller screens and devices: */
+@media screen and (max-width: 1300px) {
+  .musicPlayer {
+    width: 80px;
+    height: 80px;
+  }
+}
 @media screen and (max-width: 1300px) {
   #animalsSection {
     padding: 2%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #horoscopeText {
+    font-size: 2.5vw;
+  }
+  #animalText {
+    font-size: 2vw;
+  }
+  #animalHeader {
+    font-size: 2.5vw;
+  }
+  #temp {
+    font-size: 2vw;
+  }
+  #city {
+    font-size: 2.5vw;
+  }
+  #weatherIcon {
+    width: 100%;
+  }
+  #weather-content {
+    padding: 0;
+    margin: 0;
+    padding-top: 12%;
+  }
+  .card-image {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #quoteSection {
+    font-size: 3vw;
+  }
+  #horoscopeText {
+    font-size: 3vw;
+  }
+  #userVibe {
+    font-size: 2vw;
+  }
+  #temp {
+    font-size: 2vw;
+  }
+  #city {
+    font-size: 3vw;
+  }
+  #personalSection {
+    font-size: 7vw;
+  }
+  #personalizedMessage {
+    font-size: 5vw;
+  }
+  #animalText {
+    font-size: 2vw;
+  }
+  #animalHeader {
+    font-size: 3vw;
   }
 }
