@@ -17,80 +17,85 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <!-- Header with logo to the left Get's hidden after user submits form: -->
-    <header class = "container" id = "mainHeader">
-        <div class="columns is-mobile">
-            <img class = "column is-one-quarter" id = "logo" src = "./Assets/dailyVibes.png" 
-            alt = "Multicolored watercolor splash">
-            <!-- <h2 id = "logoText">Daily Vibes</h2> -->
-            <div class="column">
-              <!-- <h1 id ="heading">Start your day off right!</h1></div> -->
-          </div>
-    </header>
+  <div class="wrapper">
+      <img id="landingPageBg" src = "./Assets/scott-webb-C6oPXOatFD8-unsplash.jpg" 
+              alt = "photo of cactus with white background" style="height:800px; width:800px">
+      <!-- Header with logo to the left Get's hidden after user submits form: -->
+      <header class = "container" id = "mainHeader">
+          <div class="columns is-mobile">
+              <img class = "column is-one-quarter" id = "logo" src = "./Assets/dailyVibes.png" 
+              alt = "Multicolored watercolor splash">
+              <!-- <h2 id = "logoText">Daily Vibes</h2> -->
+              <div class="column">
+                <!-- <h1 id ="heading">Start your day off right!</h1></div> -->
+            </div>
+      </header>
 
-    <!-- Below is the form to handle the initial user set-up for the dashboard Gets hidden after submission: -->
-    <div class="field is-grouped is-grouped-centered is-grouped-multiline" id = "inputForm">
-        <p class="field control">
+      <!-- Below is the form to handle the initial user set-up for the dashboard Gets hidden after submission: -->
+      <div class="field is-grouped is-grouped-centered is-grouped-multiline" id = "inputForm">
+          <p class="field control">
+            
+              <div class="control has-icons-left">
+                <input id = "inputName" class="input" type="text" placeholder="What's your name?">
+                <span class="icon is-left">
+                  <i class="fas fa-user-astronaut"></i>
+                </span>
+              </div>
+          </p>
+
+          <p class="field control">
             <div class="control has-icons-left">
-              <input id = "inputName" class="input" type="text" placeholder="What's your name?">
+              <input id = "cityName" class="input" type="text" placeholder="Nearest city?">
               <span class="icon is-left">
-                <i class="fas fa-user-astronaut"></i>
+                <i class="fas fa-globe-americas"></i>
               </span>
             </div>
         </p>
 
-        <p class="field control">
-          <div class="control has-icons-left">
-            <input id = "cityName" class="input" type="text" placeholder="Nearest city?">
-            <span class="icon is-left">
-              <i class="fas fa-globe-americas"></i>
-            </span>
-          </div>
-      </p>
-
-        <p class="control has-icons-left">
-            <span class="select">
-              <select id = "vibeInput">
-                <option selected>Current Vibes</option>
-                <option>Irritated</option>
-                <option>Chill</option>
-                <option>Energetic</option>
-                <option>Downcast</option>
-              </select>
-            </span>
-            <span class="icon is-small is-left">
-                <i class="far fa-smile"></i>
-            </span>
-          </p>
-
           <p class="control has-icons-left">
-            <span class="select">
-              <select id = "zodiacInput">
-                <option selected>Zodiac Sign</option>
-                <option>Aquarius *January 20 – February 18*</option>
-                <option>Pisces *February 19 – March 20*</option>
-                <option>Aries *March 21 – April 19*</option>
-                <option>Taurus *April 20 – May 20*</option>
-                <option>Gemini *May 21 – June 20*</option>
-                <option>Cancer *June 21 – July 22*</option>
-                <option>Leo *July 23 – August 22*</option>
-                <option>Virgo *August 23 – September 22*</option>
-                <option>Libra *September 23 – October 22*</option>
-                <option>Scorpio *October 23 – November 22*</option>
-                <option>Sagittarius *November 23 – December 21*</option>
-                <option>Capricorn *December 22 – January 19*</option>
-              </select>
-            </span>
-            <span class="icon is-small is-left">
-                <i class="far fa-star"></i>
-            </span>
-          </p>
-          <p class="control">
-            <a class="button is-primary" id = "letsGo">
-              Let's Get Going!
-            </a>
-          </p>     
+              <span class="select">
+                <select id = "vibeInput">
+                  <option selected>Current Vibes</option>
+                  <option>Irritated</option>
+                  <option>Chill</option>
+                  <option>Energetic</option>
+                  <option>Downcast</option>
+                </select>
+              </span>
+              <span class="icon is-small is-left">
+                  <i class="far fa-smile"></i>
+              </span>
+            </p>
+
+            <p class="control has-icons-left">
+              <span class="select">
+                <select id = "zodiacInput">
+                  <option selected>Zodiac Sign</option>
+                  <option>Aquarius *January 20 – February 18*</option>
+                  <option>Pisces *February 19 – March 20*</option>
+                  <option>Aries *March 21 – April 19*</option>
+                  <option>Taurus *April 20 – May 20*</option>
+                  <option>Gemini *May 21 – June 20*</option>
+                  <option>Cancer *June 21 – July 22*</option>
+                  <option>Leo *July 23 – August 22*</option>
+                  <option>Virgo *August 23 – September 22*</option>
+                  <option>Libra *September 23 – October 22*</option>
+                  <option>Scorpio *October 23 – November 22*</option>
+                  <option>Sagittarius *November 23 – December 21*</option>
+                  <option>Capricorn *December 22 – January 19*</option>
+                </select>
+              </span>
+              <span class="icon is-small is-left">
+                  <i class="far fa-star"></i>
+              </span>
+            </p>
+            <p class="control">
+              <a class="button is-primary" id = "letsGo">
+                Let's Get Going!
+              </a>
+            </p>     
         </div>
+    </div> 
 
     <!-- Below is the code for the user dashboard experience Will start out hidden and then show up once form is submitted: -->
 

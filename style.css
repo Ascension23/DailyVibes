@@ -1,5 +1,6 @@
 * {
   font-family: "Archivo", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
 }
 
 body {
@@ -106,8 +107,8 @@ body {
   padding-left: 5%;
   padding-right: 5%;
 }
-.card-image{
-  margin-left:25%;
+.card-image {
+  margin-left: 25%;
 }
 #city {
   font-size: 1.5vw;
@@ -133,7 +134,7 @@ body {
 #userVibe {
   font-size: 1vw;
 }
-.musicPlayer{
+.musicPlayer {
   width: 300px;
   height: 280px;
 }
@@ -142,10 +143,9 @@ body {
   display: none;
 }
 
-
 /* Add in additional responsiveness for smaller screens and devices: */
 @media screen and (max-width: 1300px) {
-  .musicPlayer{
+  .musicPlayer {
     width: 80px;
     height: 80px;
   }
@@ -174,13 +174,13 @@ body {
   #weatherIcon {
     width: 100%;
   }
-  #weather-content{
-    padding:0;
+  #weather-content {
+    padding: 0;
     margin: 0;
     padding-top: 12%;
   }
-  .card-image{
-    margin-left:0;
+  .card-image {
+    margin-left: 0;
   }
 }
 

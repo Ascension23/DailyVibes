@@ -3,15 +3,36 @@ var userMood = document.getElementById("vibeInput");
 var userZodiac = document.getElementById("zodiacInput");
 var letsGoButton = document.getElementById("letsGo");
 var cityName = document.querySelector("#cityName");
+var landingPageBg = document.querySelector("#landingPageBg"); //landing page background
 var now = moment();
-var chillPlaylist = document.getElementById('chill')
-var irritatedPlaylist = document.getElementById('irritated')
-var energeticPlaylist = document.getElementById('energetic')
-var downcastPlaylist = document.getElementById('downcast')
-var personalMessageArray = [{irritated:{0:", take five, you've got this!", 1:", it's okay to take a step back.", 2:", jot down your thoughts, it's okay to be upset!"},
-  chill:{0: ", keep on vibing!", 1:", enjoy today!", 2:", relax, you've earned it!"}, 
-  energetic:{0: ", your energy is contagious!", 1:", there's no time like the present!", 2:", let's get going!"},
-  downcast:{0: ", don't give up, you're awesome!", 1:", each day is a new beginning!", 2:", you are loved, and you are enough!"}}];
+var chillPlaylist = document.getElementById("chill");
+var irritatedPlaylist = document.getElementById("irritated");
+var energeticPlaylist = document.getElementById("energetic");
+var downcastPlaylist = document.getElementById("downcast");
+var personalMessageArray = [
+  {
+    irritated: {
+      0: ", take five, you've got this!",
+      1: ", it's okay to take a step back.",
+      2: ", jot down your thoughts, it's okay to be upset!",
+    },
+    chill: {
+      0: ", keep on vibing!",
+      1: ", enjoy today!",
+      2: ", relax, you've earned it!",
+    },
+    energetic: {
+      0: ", your energy is contagious!",
+      1: ", there's no time like the present!",
+      2: ", let's get going!",
+    },
+    downcast: {
+      0: ", don't give up, you're awesome!",
+      1: ", each day is a new beginning!",
+      2: ", you are loved, and you are enough!",
+    },
+  },
+];
 
 document.getElementById("dashboard").style.display = "none";
 
@@ -30,56 +51,68 @@ letsGoButton.addEventListener("click", function (e) {
   document.getElementById("inputForm").style.display = "none";
   document.getElementById("mainHeader").style.display = "none";
   document.getElementById("dashboard").style.display = "block";
-  
+  landingPageBg.classList.add("hide");
 
   //Print the date to the page:
   var currentDay = now.format("MMM DD, YYYY");
   document.getElementById("currentDay").textContent = currentDay;
 
   //Get a random integer to use for the personalized message:
-  var arrayIndex = Math.floor(Math.random()* 3);
+  var arrayIndex = Math.floor(Math.random() * 3);
 
   if (mood == "Irritated") {
-    //Random personalized message based on mood from the array:    
-    document.getElementById("personalizedMessage").textContent = name + personalMessageArray[0].irritated[arrayIndex];
+    //Random personalized message based on mood from the array:
+    document.getElementById("personalizedMessage").textContent =
+      name + personalMessageArray[0].irritated[arrayIndex];
     //Music playlist based on mood:
-      irritatedPlaylist.style.display = 'block';
-    document.getElementById('userVibe').textContent = "Rock music to fit your irritated vibe!";
+    irritatedPlaylist.style.display = "block";
+    document.getElementById("userVibe").textContent =
+      "Rock music to fit your irritated vibe!";
     // Change background based on mood:
-    document.body.style.backgroundImage = "URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg')";
+    document.body.style.backgroundImage =
+      "URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg')";
     // getWallpaper();
     document.body.style.color = "white";
   }
   if (mood == "Chill") {
-    //Random personalized message based on mood from the array: 
-    document.getElementById("personalizedMessage").textContent = name + personalMessageArray[0].chill[arrayIndex];
-      //Music playlist based on mood:
-      chillPlaylist.style.display = 'block';
-      document.getElementById('userVibe').textContent = "Lofi for your chill vibe!";
-      // Change background based on mood:
-      document.body.style.backgroundImage = "URL('./Assets/pexels-martin-damboldt-814499.jpg')";
+    //Random personalized message based on mood from the array:
+    document.getElementById("personalizedMessage").textContent =
+      name + personalMessageArray[0].chill[arrayIndex];
+    //Music playlist based on mood:
+    chillPlaylist.style.display = "block";
+    document.getElementById("userVibe").textContent =
+      "Lofi for your chill vibe!";
+    // Change background based on mood:
+    document.body.style.backgroundImage =
+      "URL('./Assets/pexels-martin-damboldt-814499.jpg')";
     // getWallpaper();
     document.body.style.color = "white";
   }
   if (mood == "Energetic") {
-    //Random personalized message based on mood from the array: 
-    document.getElementById("personalizedMessage").textContent = name + personalMessageArray[0].energetic[arrayIndex];
-      //Music playlist based on mood:
-      energeticPlaylist.style.display = 'block';
-      document.getElementById('userVibe').textContent = "A party playlist to fit your energetic vibe!";
-      // Change background based on mood:
-      document.body.style.backgroundImage = "URL('./Assets/pexels-pixabay-206359.jpg')";
+    //Random personalized message based on mood from the array:
+    document.getElementById("personalizedMessage").textContent =
+      name + personalMessageArray[0].energetic[arrayIndex];
+    //Music playlist based on mood:
+    energeticPlaylist.style.display = "block";
+    document.getElementById("userVibe").textContent =
+      "A party playlist to fit your energetic vibe!";
+    // Change background based on mood:
+    document.body.style.backgroundImage =
+      "URL('./Assets/pexels-pixabay-206359.jpg')";
     // getWallpaper();
     document.body.style.color = "white";
   }
   if (mood == "Downcast") {
-    //Random personalized message based on mood from the array: 
-    document.getElementById("personalizedMessage").textContent = name + personalMessageArray[0].downcast[arrayIndex];
-      //Music playlist based on mood:
-      downcastPlaylist.style.display = 'block';
-      document.getElementById('userVibe').textContent = "Emo music to fit your downcast vibe!";
-      // Change background based on mood:
-      document.body.style.backgroundImage = "URL('./Assets/pexels-kyle-roxas-2138922.jpg')";
+    //Random personalized message based on mood from the array:
+    document.getElementById("personalizedMessage").textContent =
+      name + personalMessageArray[0].downcast[arrayIndex];
+    //Music playlist based on mood:
+    downcastPlaylist.style.display = "block";
+    document.getElementById("userVibe").textContent =
+      "Emo music to fit your downcast vibe!";
+    // Change background based on mood:
+    document.body.style.backgroundImage =
+      "URL('./Assets/pexels-kyle-roxas-2138922.jpg')";
     // getWallpaper();
     document.body.style.color = "white";
   }
@@ -115,8 +148,7 @@ letsGoButton.addEventListener("click", function (e) {
   var sign = zodiacArray[0];
   console.log(sign); //Working!
   getZodiac(sign);
-  document.getElementById("horoscopeSign").textContent = "Dear " + sign +","
-
+  document.getElementById("horoscopeSign").textContent = "Dear " + sign + ",";
 });
 document.querySelector("#inputName").value = "";
 
@@ -146,7 +178,6 @@ function getQuoteApi() {
 var fetchButton = document.getElementById("quoteBtn");
 fetchButton.addEventListener("click", getQuoteApi);
 
-
 var getZodiac = function (sign) {
   fetch("https://devbrewer-horoscope.p.rapidapi.com/today/short/" + sign, {
     method: "GET",
@@ -173,7 +204,6 @@ var getZodiac = function (sign) {
   // "https://devbrewer-horoscope.p.rapidapi.com/today/short/" + zodiac;
   //https://devbrewer-horoscope.p.rapidapi.com/today/short/Cancer"
 };
-
 
 //Weather API:
 //Create the current weather funtion for the API call:
@@ -211,7 +241,7 @@ function displayCurrentWeather(cityInput, array) {
   //Create the temp variable and dynamically add it to the page:
   var temp = array.current.temp + " °F";
   document.getElementById("temp").textContent = temp;
-};
+}
 
 //API calls for Cat and Dog Pictures:
 var dogImage = document.getElementById("dogImg");
@@ -232,7 +262,7 @@ function randomDog(event) {
       });
     }
   });
-};
+}
 
 //Create the function that will run on cat image click:
 function randomCat(event) {
@@ -250,33 +280,34 @@ function randomCat(event) {
       });
     }
   });
-};
+}
 
 dogImage.addEventListener("click", randomDog);
 catImage.addEventListener("click", randomCat);
 
-
-
-//Commented out - errors with too many requests
-//Create dynamic wallpaper:
-// var getWallpaper = function() {
-//   var myHeaders = new Headers();
-//   myHeaders.append("Authorization", "Bearer 8a4fad9f70ab2c2baf42415ee4ac88e1ebbbd653");
-//   var requestOptions = {
-//     method: 'GET',
-//     headers: myHeaders,
-//     redirect: 'follow'
-//   };
-//   fetch("https://api.imgur.com/3/album/JnI5N/images/", requestOptions)
-//     .then((response) => response.json())
-//     // console.log(response)
-//     .then((result) => {
-//       // console.log(result.data)
-//       console.log(result.data[Math.floor(Math.random() * 32)].link);
-//       var wallpaper = result.data[Math.floor(Math.random() * 32)].link;
-//       document.body.style.backgroundImage = `url(${wallpaper})`;
-//     })
-//     .catch(error => {
-//       console.log('error', error);
-//     })
-//   };
+// Commented out - errors with too many requests
+// Create dynamic wallpaper:
+var getWallpaper = function () {
+  var myHeaders = new Headers();
+  myHeaders.append(
+    "Authorization",
+    "Bearer 8a4fad9f70ab2c2baf42415ee4ac88e1ebbbd653"
+  );
+  var requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow",
+  };
+  fetch("https://api.imgur.com/3/album/JnI5N/images/", requestOptions)
+    .then((response) => response.json())
+    // console.log(response)
+    .then((result) => {
+      // console.log(result.data)
+      console.log(result.data[Math.floor(Math.random() * 32)].link);
+      var wallpaper = result.data[Math.floor(Math.random() * 32)].link;
+      document.body.style.backgroundImage = `url(${wallpaper})`;
+    })
+    .catch((error) => {
+      console.log("error", error);
+    });
+};
