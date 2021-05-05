@@ -70,7 +70,7 @@ letsGoButton.addEventListener("click", function (e) {
       "Rock music to fit your irritated vibe!";
     // Change background based on mood:
     document.body.style.backgroundImage =
-      "URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg')";
+      "URL('./Assets/images/matteo-minelli-VgdFyOOu1PA-unsplash.jpg')";
     // getWallpaper();
     document.body.style.color = "white";
   }
@@ -84,7 +84,7 @@ letsGoButton.addEventListener("click", function (e) {
       "Lofi for your chill vibe!";
     // Change background based on mood:
     document.body.style.backgroundImage =
-      "URL('./Assets/pexels-martin-damboldt-814499.jpg')";
+      "URL('./Assets/images/irene-davila-9Y5Wk7favpE-unsplash.jpg')";
     // getWallpaper();
     document.body.style.color = "white";
   }
@@ -98,7 +98,7 @@ letsGoButton.addEventListener("click", function (e) {
       "A party playlist to fit your energetic vibe!";
     // Change background based on mood:
     document.body.style.backgroundImage =
-      "URL('./Assets/pexels-pixabay-206359.jpg')";
+      "URL('./Assets/images/simon-berger-twukN12EN7c-unsplash.jpg')";
     // getWallpaper();
     document.body.style.color = "white";
   }
@@ -112,7 +112,7 @@ letsGoButton.addEventListener("click", function (e) {
       "Emo music to fit your downcast vibe!";
     // Change background based on mood:
     document.body.style.backgroundImage =
-      "URL('./Assets/pexels-kyle-roxas-2138922.jpg')";
+      "URL('./Assets/images/forrest-cavale-qfmd9bu7IgA-unsplash.jpg)";
     // getWallpaper();
     document.body.style.color = "white";
   }
