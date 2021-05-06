@@ -60,6 +60,10 @@ letsGoButton.addEventListener("click", function (e) {
   //Get a random integer to use for the personalized message:
   var arrayIndex = Math.floor(Math.random() * 3);
 
+  //Change the background:
+  getWallpaper();
+  document.body.style.color = "white";
+
   if (mood == "Irritated") {
     //Random personalized message based on mood from the array:
     document.getElementById("personalizedMessage").textContent =
@@ -69,10 +73,7 @@ letsGoButton.addEventListener("click", function (e) {
     document.getElementById("userVibe").textContent =
       "Rock music to fit your irritated vibe!";
     // Change background based on mood:
-    document.body.style.backgroundImage =
-      "URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg')";
-    // getWallpaper();
-    document.body.style.color = "white";
+    // document.body.style.backgroundImage = "URL('./Assets/pexels-quang-nguyen-vinh-2131801.jpg')";
   }
   if (mood == "Chill") {
     //Random personalized message based on mood from the array:
@@ -83,10 +84,7 @@ letsGoButton.addEventListener("click", function (e) {
     document.getElementById("userVibe").textContent =
       "Lofi for your chill vibe!";
     // Change background based on mood:
-    document.body.style.backgroundImage =
-      "URL('./Assets/pexels-martin-damboldt-814499.jpg')";
-    // getWallpaper();
-    document.body.style.color = "white";
+    // document.body.style.backgroundImage = "URL('./Assets/pexels-martin-damboldt-814499.jpg')";
   }
   if (mood == "Energetic") {
     //Random personalized message based on mood from the array:
@@ -97,10 +95,7 @@ letsGoButton.addEventListener("click", function (e) {
     document.getElementById("userVibe").textContent =
       "A party playlist to fit your energetic vibe!";
     // Change background based on mood:
-    document.body.style.backgroundImage =
-      "URL('./Assets/pexels-pixabay-206359.jpg')";
-    // getWallpaper();
-    document.body.style.color = "white";
+    // document.body.style.backgroundImage = "URL('./Assets/pexels-pixabay-206359.jpg')";
   }
   if (mood == "Downcast") {
     //Random personalized message based on mood from the array:
@@ -111,10 +106,7 @@ letsGoButton.addEventListener("click", function (e) {
     document.getElementById("userVibe").textContent =
       "Emo music to fit your downcast vibe!";
     // Change background based on mood:
-    document.body.style.backgroundImage =
-      "URL('./Assets/pexels-kyle-roxas-2138922.jpg')";
-    // getWallpaper();
-    document.body.style.color = "white";
+    // document.body.style.backgroundImage = "URL('./Assets/pexels-kyle-roxas-2138922.jpg')";
   }
   //Quote Call
   getQuoteApi();
@@ -138,19 +130,18 @@ letsGoButton.addEventListener("click", function (e) {
   });
 
   //Set search bar back to default:
-  document.querySelector("#inputName").value = "";
-  document.querySelector("#cityName").value = "";
+  // document.querySelector("#inputName").value = "";
+  // document.querySelector("#cityName").value = "";
 
   //Comment - var sign is going to equal the userZodiac.value split at just the zodiac name, which is the first word.
   //Try parse, or google how to split out first word. Week 6 activity 8 and 10.
   var zodiacArray = zodiac.split(" ");
-  console.log(zodiacArray); //Working!
+  // console.log(zodiacArray); //Working!
   var sign = zodiacArray[0];
-  console.log(sign); //Working!
+  // console.log(sign); //Working!
   getZodiac(sign);
   document.getElementById("horoscopeSign").textContent = "Dear " + sign + ",";
 });
-document.querySelector("#inputName").value = "";
 
 //Function for the quote of the day
 function getQuoteApi() {
@@ -189,8 +180,8 @@ var getZodiac = function (sign) {
     .then((response) => response.json())
     // console.log(response)
     .then((data) => {
-      console.log(sign);
-      console.log(data);
+      // console.log(sign);
+      // console.log(data);
       //When you assign a part of an onject a variable, need to use bracket notation instead of dot notation.
       console.log(data[sign]);
 
@@ -201,8 +192,6 @@ var getZodiac = function (sign) {
     .catch((err) => {
       console.error(err);
     });
-  // "https://devbrewer-horoscope.p.rapidapi.com/today/short/" + zodiac;
-  //https://devbrewer-horoscope.p.rapidapi.com/today/short/Cancer"
 };
 
 //Weather API:
@@ -285,8 +274,8 @@ function randomCat(event) {
 dogImage.addEventListener("click", randomDog);
 catImage.addEventListener("click", randomCat);
 
-// Commented out - errors with too many requests
-// Create dynamic wallpaper:
+//Commented out - errors with too many requests
+//Create dynamic wallpaper:
 var getWallpaper = function () {
   var myHeaders = new Headers();
   myHeaders.append(
@@ -303,7 +292,7 @@ var getWallpaper = function () {
     // console.log(response)
     .then((result) => {
       // console.log(result.data)
-      console.log(result.data[Math.floor(Math.random() * 32)].link);
+      // console.log(result.data[Math.floor(Math.random() * 32)].link);
       var wallpaper = result.data[Math.floor(Math.random() * 32)].link;
       document.body.style.backgroundImage = `url(${wallpaper})`;
     })
