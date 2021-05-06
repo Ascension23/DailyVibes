@@ -3,7 +3,6 @@
 }
 
 body {
-  /* background-image: URL('./Assets/pexels-martin-damboldt-814499.jpg'); */
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -36,28 +35,23 @@ body {
 
 .card {
   /* Use an rgb color value and the 0.2 at the end to make the background transparent while keeping the card content completely visible: */
-  background: rgb(69, 89, 128, 0.4);
+  background: rgb(69, 89, 128, 0);
   color: white;
 }
 
 #horoscopeSection {
   padding: 3%;
 }
-#horoscopeImg {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
-}
 #horoscopeText {
   display: inline-block;
   font-size: 1.2vw;
+  text-shadow: 0px 3px rgb(39, 39, 43);
 }
 
 #animalsSection {
   padding: 2%;
   padding-left: 20%;
-  text-align: center;
+  text-align: right;
   font-size: 2vw;
   color: black;
 }
@@ -105,10 +99,14 @@ body {
   text-align: center;
   padding-left: 5%;
   padding-right: 5%;
+  text-shadow: 0px 3px rgb(39, 39, 43);
 }
 .card-image{
   margin-left:25%;
 }
+/* .weather-card{
+  border: 2px solid white;
+} */
 #city {
   font-size: 1.5vw;
   line-height: 1;
@@ -125,6 +123,7 @@ body {
   padding: 3%;
   text-align: center;
   font-size: 1.5vw;
+  text-shadow: 0px 3px rgb(39, 39, 43);
 }
 
 #musicSection {
@@ -132,6 +131,7 @@ body {
 }
 #userVibe {
   font-size: 1vw;
+  text-shadow: 0px 3px rgb(39, 39, 43);
 }
 .musicPlayer{
   width: 300px;
