@@ -167,7 +167,7 @@ function getQuoteApi() {
 }
 
 var fetchButton = document.getElementById("quoteBtn");
-fetchButton.addEventListener("click", getQuoteApi);
+// fetchButton.addEventListener("click", getQuoteApi);
 
 var getZodiac = function (sign) {
   fetch("https://devbrewer-horoscope.p.rapidapi.com/today/short/" + sign, {
