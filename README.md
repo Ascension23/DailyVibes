@@ -25,6 +25,8 @@ https://github.com/Ascension23/DailyVibes
 
 
 ## Screenshot
+![DailyVibesLandingPage](https://user-images.githubusercontent.com/77472152/117386863-7d954d80-ae9c-11eb-8870-64c2b3a6b9dd.png)
+![DailyVibesMainPage](https://user-images.githubusercontent.com/77472152/117386898-96056800-ae9c-11eb-80b4-2ab67a798429.png)
 
 
 
