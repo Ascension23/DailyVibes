@@ -183,10 +183,10 @@ var getZodiac = function (sign) {
       // console.log(sign);
       // console.log(data);
       //When you assign a part of an onject a variable, need to use bracket notation instead of dot notation.
-      console.log(data[sign]);
+      // console.log(data[sign]);
 
       var signHoroscope = data[sign].Today;
-      console.log(signHoroscope);
+      // console.log(signHoroscope);
       document.getElementById("horoscopeText").textContent = signHoroscope;
     })
     .catch((err) => {
