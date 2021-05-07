@@ -18,6 +18,7 @@ https://aanolan51.github.io/DailyVibes/
 ### Adrian Aguilar
 https://github.com/Ascension23/DailyVibes
 
+https://ascension23.github.io/DailyVibes/
 
 ### Alina Hernandez
 https://github.com/truethatplaya/DailyVibes
