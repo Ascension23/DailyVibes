@@ -19,8 +19,8 @@ https://github.com/Ascension23/DailyVibes
 
 
 ### Alina Hernandez
-https://truethatplaya.github.io/DailyVibes/
 https://github.com/truethatplaya/DailyVibes
+https://truethatplaya.github.io/DailyVibes/
 
 ### Edgar Lule
 
