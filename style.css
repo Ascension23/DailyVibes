@@ -3,9 +3,10 @@
 }
 
 body {
-  background-size: cover;
-  background-repeat: no-repeat; 
-  background: rgba(82, 82, 83, 0.3);
+  min-height: 100vh;
+  /* background-size: cover;
+  background-repeat: no-repeat;  */
+  /* background: rgba(82, 82, 83, 0.3); */
 }
 
 #landingPageBg {
