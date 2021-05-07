@@ -12,6 +12,7 @@ The landing page asks for your name, city, current mood as well as your zodiac s
 
 ### Alyssa Nolan
 https://github.com/aanolan51/DailyVibes
+
 https://aanolan51.github.io/DailyVibes/
 
 ### Adrian Aguilar
@@ -20,6 +21,7 @@ https://github.com/Ascension23/DailyVibes
 
 ### Alina Hernandez
 https://github.com/truethatplaya/DailyVibes
+
 https://truethatplaya.github.io/DailyVibes/
 
 ### Edgar Lule
