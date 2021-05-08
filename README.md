@@ -46,3 +46,5 @@ https://truethatplaya.github.io/DailyVibes/
 10. https://www.quackit.com/html/codes/html_stretch_background_image.cfm#:~:text=You%20can%20use%20background%2Dsize,get%20stretched%20out%20of%20proportion.
 11. https://www.w3schools.com/jsref/prop_style_backgroundimage.asp
 12. https://rapidapi.com/martin.svoboda/api/quotes15
+13. https://rapidapi.com/HoroscopeApi/api/horoscope
+14. https://apidocs.imgur.com/
